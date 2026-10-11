@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheikh Abdul Basit | Junior Apparel Merchandiser Portfolio</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-teal: #0d9488;
+      --accent-amber: #d97706;
+      --surface: #ffffff;
+      --surface-subtle: #f8fafc;
+      --surface-card: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #94a3b8;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --success: #16a34a;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --radius-lg: 16px;
+      --transition: all 0.2s ease-in-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      background-color: var(--surface-subtle);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: var(--surface-subtle);
+      border-color: var(--border-focus);
+    }
+
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 0.82rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 40px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--surface-subtle) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #eff6ff;
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid #dbeafe;
+    }
+
+    .hero-badge-pulse {
+      width: 8px;
+      height: 8px;
+      background: #2563eb;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .quick-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .quick-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .live-status-pill {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 64px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+
+    .section-tag {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Card System */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--border-focus);
+    }
+
+    /* Tabs Component */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -4px;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .tab-btn:hover {
+      color: var(--accent);
+    }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Workflow Stepper */
+    .stepper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .step-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .step-item:hover, .step-item.active {
+      border-color: var(--accent);
+      background: #f8faff;
+    }
+
+    .step-item.active {
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .step-item.active .step-num {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .workflow-detail-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface-subtle);
+      font-weight: 700;
+      color: var(--primary);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-primary { background: #dbeafe; color: #1e40af; }
+    .badge-success { background: #dcfce7; color: #15803d; }
+    .badge-warning { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #6b21a8; }
+
+    /* Interactive Calculator Card */
+    .calc-card {
+      background: #f8fafc;
+      border: 1px dashed var(--border-focus);
+      padding: 20px;
+      border-radius: var(--radius);
+      margin-top: 20px;
+    }
+
+    .calc-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .calc-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .calc-input-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .calc-input-group input, .calc-input-group select {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      outline: none;
+      background: #fff;
+    }
+
+    .calc-input-group input:focus {
+      border-color: var(--accent);
+    }
+
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      background: #fff;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    .calc-result-item {
+      text-align: center;
+    }
+
+    .calc-result-val {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+
+    .calc-result-lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* T&A Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -28px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--accent);
+    }
+
+    .timeline-dot.done {
+      border-color: var(--success);
+      background: var(--success);
+    }
+
+    .timeline-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .timeline-role {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
+    .timeline-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .timeline-company {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline-list {
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .skill-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: #eff6ff;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .skill-card-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: #94a3b8;
+      max-width: 540px;
+      margin: 0 auto 32px;
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .btn-light:hover {
+      background: #f1f5f9;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .stepper {
+        grid-template-columns: 1fr 1fr;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .stepper {
+        grid-template-columns: 1fr;
+      }
+      .contact-box {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <div class="brand">
+        <span class="brand-badge">SB</span>
+        <span>Sheikh Abdul Basit</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#workflow">Order Workflow</a></li>
+        <li><a href="#techpack">Tech Pack & BOM</a></li>
+        <li><a href="#tna">T&A Calendar</a></li>
+        <li><a href="#sampling">Sampling</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+      <div>
+        <a href="#contact" class="btn btn-primary btn-sm">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="hero-badge-pulse"></span>
+          Ready for Junior Merchandiser & Order Follow-up Roles
+        </div>
+        <h1 class="hero-title">Sheikh Abdul Basit</h1>
+        <div class="hero-subtitle">Junior Apparel Merchandiser | RMG Order Specialist</div>
+        <p class="hero-bio">
+          Hands-on merchandiser with direct experience in <strong>Vertex RMG Division</strong> (Savar, Dhaka). Specializing in Buyer Purchase Order (PO) entry, Proforma Invoice (PI) verification, Tech Pack evaluation, T&A calendar tracking, and apparel ERP management.
+        </p>
+        <div class="hero-actions">
+          <a href="#workflow" class="btn btn-primary">
+            Explore Merchandising Portfolio
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://docs.google.com/document/d/1KzZMKCLOH9EnMwpQ3XVRPzZQoM8yMaJrEQwiJ2kV2EU/edit" target="_blank" class="btn btn-outline">
+            View Live Google Doc CV
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+        </div>
+        <div class="quick-meta">
+          <div class="quick-meta-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Genda, Savar, Dhaka, Bangladesh
+          </div>
+          <div class="quick-meta-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            mailto.sowad@gmail.com
+          </div>
+          <div class="quick-meta-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            +880 1516-520208
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Summary Card -->
+      <div class="hero-card">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--primary);">Merchandising Execution Snapshot</h3>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">PO Accuracy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">ERP</div>
+            <div class="stat-label">Proficient Entry</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">B.Sc.</div>
+            <div class="stat-label">Textile Engineering</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">BOM & T&A</div>
+            <div class="stat-label">Execution Focus</div>
+          </div>
+        </div>
+        <div class="live-status-pill">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong>Vertex RMG Division Experience:</strong> Routine management of buyer order sheets, supplier PIs, and production floor follow-ups.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Order Workflow Section -->
+  <section id="workflow" style="background: var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Core Competency Case Study</div>
+        <h2 class="section-title">Order Entry & PO/PI Management Workflow</h2>
+        <p class="section-desc">Interactive demonstration of how I process orders from initial Buyer PO receipt to issuing supplier purchase orders and tracking bulk lines.</p>
+      </div>
+
+      <!-- Stepper Buttons -->
+      <div class="stepper" id="workflowStepper">
+        <div class="step-item active" onclick="setWorkflowStep(0)">
+          <div class="step-num">1</div>
+          <div class="step-title">Buyer PO Audit</div>
+          <div class="step-desc">Validation of size ratios, style specs, incoterms & ETD.</div>
+        </div>
+        <div class="step-item" onclick="setWorkflowStep(1)">
+          <div class="step-num">2</div>
+          <div class="step-title">ERP Order Entry</div>
+          <div class="step-desc">Booking order lines, generating internal style codes.</div>
+        </div>
+        <div class="step-item" onclick="setWorkflowStep(2)">
+          <div class="step-num">3</div>
+          <div class="step-title">Supplier PI Audit</div>
+          <div class="step-desc">Cross-matching yarn, trims, GSM, MOQ & lead times.</div>
+        </div>
+        <div class="step-item" onclick="setWorkflowStep(3)">
+          <div class="step-num">4</div>
+          <div class="step-title">Supplier PO Issuance</div>
+          <div class="step-desc">Contract signing & in-house tracking against T&A.</div>
+        </div>
+      </div>
+
+      <!-- Dynamic Detail Box -->
+      <div class="workflow-detail-box" id="workflowDetailBox">
+        <!-- Content will be swapped by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Pack & BOM Showcase -->
+  <section id="techpack" style="background: var(--surface-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Technical Garment Breakdown</div>
+        <h2 class="section-title">Tech Pack Analysis & Bill of Materials (BOM)</h2>
+        <p class="section-desc">Demonstration sample for a classic 100% Combed Cotton Men's Pique Polo Shirt (Order: 10,000 pcs across 3 colorways).</p>
+      </div>
+
+      <div class="card">
+        <div class="tabs-nav">
+          <button class="tab-btn active" onclick="switchTechTab(event, 'bom-tab')">Bill of Materials (BOM) Sheet</button>
+          <button class="tab-btn" onclick="switchTechTab(event, 'spec-tab')">Measurement & Tolerance Spec</button>
+          <button class="tab-btn" onclick="switchTechTab(event, 'calculator-tab')">Interactive Consumption Calculator</button>
+        </div>
+
+        <!-- BOM Pane -->
+        <div class="tab-pane active" id="bom-tab">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item Code</th>
+                  <th>Category</th>
+                  <th>Description / Specification</th>
+                  <th>Consumption / Dz</th>
+                  <th>Wastage %</th>
+                  <th>Supplier Type</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>FB-101</strong></td>
+                  <td>Main Body</td>
+                  <td>100% Combed Cotton Pique, 210 GSM, Reactive Dyed</td>
+                  <td>2.85 kg / Dz</td>
+                  <td>7%</td>
+                  <td>Nominated Mill</td>
+                  <td><span class="badge badge-success">Lab Dip Approved</span></td>
+                </tr>
+                <tr>
+                  <td><strong>FB-102</strong></td>
+                  <td>Collar & Cuff</td>
+                  <td>1x1 Flat Knit Rib Collar & Cuff, DTM</td>
+                  <td>0.45 kg / Dz</td>
+                  <td>5%</td>
+                  <td>In-house Knitting</td>
+                  <td><span class="badge badge-success">Approved</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TR-201</strong></td>
+                  <td>Sewing Thread</td>
+                  <td>100% Spun Polyester 40/2 DTM</td>
+                  <td>180 meters / Dz</td>
+                  <td>10%</td>
+                  <td>Local Sourced</td>
+                  <td><span class="badge badge-primary">PO Issued</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TR-202</strong></td>
+                  <td>Button</td>
+                  <td>18L 2-Hole Pearl Polyester Button, Laser Engraved</td>
+                  <td>36 pcs / Dz (3/garment)</td>
+                  <td>3%</td>
+                  <td>Buyer Nominated</td>
+                  <td><span class="badge badge-success">In-house</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TR-203</strong></td>
+                  <td>Interlining</td>
+                  <td>Non-woven fusible interlining for placket & collar stand</td>
+                  <td>0.12 m / Dz</td>
+                  <td>5%</td>
+                  <td>Approved Vendor</td>
+                  <td><span class="badge badge-primary">PI Received</span></td>
+                </tr>
+                <tr>
+                  <td><strong>PK-301</strong></td>
+                  <td>Packaging</td>
+                  <td>Self-adhesive Polybag (Recycled LDPE with warning print)</td>
+                  <td>12 pcs / Dz</td>
+                  <td>2%</td>
+                  <td>Local Supplier</td>
+                  <td><span class="badge badge-warning">Sample Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
+            * Standard calculation model used at Vertex RMG Division to prevent fabric shortages and excess dead stock.
+          </div>
+        </div>
+
+        <!-- Spec Pane -->
+        <div class="tab-pane" id="spec-tab">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Point of Measure (POM)</th>
+                  <th>Tol (+/-)</th>
+                  <th>Size S</th>
+                  <th>Size M</th>
+                  <th>Size L</th>
+                  <th>Size XL</th>
+                  <th>Size XXL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1/2 Chest (2.5cm below armhole)</td>
+                  <td>0.7 cm</td>
+                  <td>50.0</td>
+                  <td>53.0</td>
+                  <td>56.0</td>
+                  <td>59.0</td>
+                  <td>62.0</td>
+                </tr>
+                <tr>
+                  <td>Body Length (HPS to bottom)</td>
+                  <td>1.0 cm</td>
+                  <td>70.0</td>
+                  <td>72.0</td>
+                  <td>74.0</td>
+                  <td>76.0</td>
+                  <td>78.0</td>
+                </tr>
+                <tr>
+                  <td>Across Shoulder (Seam to Seam)</td>
+                  <td>0.5 cm</td>
+                  <td>43.0</td>
+                  <td>45.0</td>
+                  <td>47.0</td>
+                  <td>49.0</td>
+                  <td>51.0</td>
+                </tr>
+                <tr>
+                  <td>Sleeve Length (From shoulder)</td>
+                  <td>0.5 cm</td>
+                  <td>21.0</td>
+                  <td>22.0</td>
+                  <td>23.0</td>
+                  <td>24.0</td>
+                  <td>25.0</td>
+                </tr>
+                <tr>
+                  <td>Placket Length x Width</td>
+                  <td>0.3 cm</td>
+                  <td>16 x 3.2</td>
+                  <td>16 x 3.2</td>
+                  <td>17 x 3.2</td>
+                  <td>17 x 3.2</td>
+                  <td>17 x 3.2</td>
+                </tr>
+                <tr>
+                  <td>Neck Width (Seam to Seam)</td>
+                  <td>0.4 cm</td>
+                  <td>18.5</td>
+                  <td>19.0</td>
+                  <td>19.5</td>
+                  <td>20.0</td>
+                  <td>20.5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
+            All measurements in centimeters (cm). Used for Fit Sample and Pre-Production (PP) cross-inspection against Gerber CAD pattern data.
+          </div>
+        </div>
+
+        <!-- Interactive Calculator Pane -->
+        <div class="tab-pane" id="calculator-tab">
+          <div class="calc-card">
+            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary);">Real-time Garment Booking Estimator</h4>
+            <div class="calc-row">
+              <div class="calc-input-group">
+                <label>Order Quantity (Pcs)</label>
+                <input type="number" id="calcOrderQty" value="6000" min="100" step="500" oninput="calculateBooking()">
+              </div>
+              <div class="calc-input-group">
+                <label>Garment Type</label>
+                <select id="calcGarmentType" onchange="calculateBooking()">
+                  <option value="pique_polo">Pique Polo (210 GSM) - 2.85 kg/Dz</option>
+                  <option value="basic_tee">Basic Crew T-Shirt (160 GSM) - 2.10 kg/Dz</option>
+                  <option value="hoodie">Fleece Hoodie (280 GSM) - 5.40 kg/Dz</option>
+                </select>
+              </div>
+              <div class="calc-input-group">
+                <label>Cutting & Process Wastage</label>
+                <select id="calcWastage" onchange="calculateBooking()">
+                  <option value="0.06">6% Standard Safe</option>
+                  <option value="0.08" selected>8% Recommended Buffer</option>
+                  <option value="0.10">10% Complex Shade/Print</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calc-results">
+              <div class="calc-result-item">
+                <div class="calc-result-val" id="resFabricKg">1,539 kg</div>
+                <div class="calc-result-lbl">Total Body Fabric Booking</div>
+              </div>
+              <div class="calc-result-item">
+                <div class="calc-result-val" id="resButtons">18,540 pcs</div>
+                <div class="calc-result-lbl">Buttons (Inc. 3% buffer)</div>
+              </div>
+              <div class="calc-result-item">
+                <div class="calc-result-val" id="resCartons">200 ctn</div>
+                <div class="calc-result-lbl">Master Cartons (30 pcs/ctn)</div>
+              </div>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">
+              Formula: <code>(Order Qty / 12) * Unit Consumption * (1 + Wastage %)</code>. Demonstrates practical mathematical estimation applied in daily supplier PI verification.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Time & Action (T&A) Calendar -->
+  <section id="tna" style="background: var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Critical Path Management</div>
+        <h2 class="section-title">Time & Action (T&A) Execution Plan</h2>
+        <p class="section-desc">Sample 55-Day Lead Time Critical Path for Export Garment Orders. Merchandiser follow-up ensures zero shipment delays.</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Lead Day</th>
+              <th>Key Event / Milestone</th>
+              <th>Primary Action</th>
+              <th>Responsible Dept</th>
+              <th>Critical Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Day 01–03</strong></td>
+              <td>Order Confirmation & Tech Pack</td>
+              <td>Review buyer PO, tech pack audit, enter into ERP</td>
+              <td>Merchandising</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 04–08</strong></td>
+              <td>Lab Dip & Yarn Booking</td>
+              <td>Issue supplier PO for yarn, submit lab dips A, B, C</td>
+              <td>Dyeing & Merchandiser</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 10–15</strong></td>
+              <td>Fit Sample Submission</td>
+              <td>Produce fit sample on available fabric, courier to buyer</td>
+              <td>Sample Room & QA</td>
+              <td><span class="badge badge-success">Approved</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 16–22</strong></td>
+              <td>Bulk Fabric Knitting & Dyeing</td>
+              <td>Monitor lot quality, 4-point fabric inspection, shrinkage test</td>
+              <td>Fabric QA & Mill</td>
+              <td><span class="badge badge-primary">On Schedule</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 23–28</strong></td>
+              <td>Trims In-house & Size Set</td>
+              <td>100% accessories in-house against PI, verify size set fit</td>
+              <td>Store & Merchandiser</td>
+              <td><span class="badge badge-primary">In Progress</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 29–31</strong></td>
+              <td>Pre-Production (PP) Meeting</td>
+              <td>Floor meeting with Production Manager, QA Head & Line Supervisor</td>
+              <td>Factory Operations</td>
+              <td><span class="badge badge-warning">Critical Gateway</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 32–44</strong></td>
+              <td>Bulk Cutting & Sewing Lines</td>
+              <td>Monitor line efficiency, daily output tracking, TOP sample pull</td>
+              <td>Production & Merch</td>
+              <td><span class="badge badge-warning">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 45–50</strong></td>
+              <td>Washing, Finishing & Packing</td>
+              <td>Thread trimming, pressing, tagging, carton packing</td>
+              <td>Finishing Section</td>
+              <td><span class="badge badge-warning">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 51–53</strong></td>
+              <td>Final Quality Inspection (FRI)</td>
+              <td>Buyer QA / Third Party (AQL 2.5/4.0 standard inspection)</td>
+              <td>Buyer QA & Factory QA</td>
+              <td><span class="badge badge-purple">Inspection Gate</span></td>
+            </tr>
+            <tr>
+              <td><strong>Day 54–55</strong></td>
+              <td>Ex-Factory & Port Handover</td>
+              <td>Forwarder booking, shipping documents dispatch, invoice</td>
+              <td>Commercial & Merch</td>
+              <td><span class="badge badge-purple">Final Shipment</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Development Cycle -->
+  <section id="sampling" style="background: var(--surface-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Sampling Lifecycle</div>
+        <h2 class="section-title">Sample Development & Approval Stages</h2>
+        <p class="section-desc">From initial proto to final ex-factory shipment, maintaining clear approval logs is the core of sample follow-up.</p>
+      </div>
+
+      <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div class="card">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 01</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Proto Sample</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Evaluates aesthetic silhouette and preliminary styling using available fabric quality.</p>
+          <div class="pill">Focus: Design & Silhouette</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 02</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Fit Sample</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Strict measurement validation on mannequin/live models. Log buyer fit comments into CAD.</p>
+          <div class="pill">Focus: Measurements & Tolerances</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 03</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Size Set Sample</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Verifies proportional grading across the full size curve (XS to 3XL) before bulk cutting.</p>
+          <div class="pill">Focus: Grading Balance</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 04</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">PP Sample (Pre-Production)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Made with 100% actual bulk fabric and production trims. Mandatory benchmark for the PP meeting.</p>
+          <div class="pill">Focus: Bulk Quality Standard</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 05</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">TOP (Top of Production)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Pulled from first 100 bulk sewn garments to ensure production mirrors the signed PP sample.</p>
+          <div class="pill">Focus: Sewing Line Replication</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 06</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Shipment / Retention Sample</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Randomly pulled from final packed cartons for buyer record keeping and factory archive.</p>
+          <div class="pill">Focus: Final Pack Audit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Competencies & Systems -->
+  <section id="skills" style="background: var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Capabilities</div>
+        <h2 class="section-title">Technical Skills & Software Tools</h2>
+        <p class="section-desc">Practical proficiency applied daily in textile manufacturing environments.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3 class="skill-card-title">Merchandising Operations</h3>
+          <div class="pill-list">
+            <span class="pill">Buyer PO Entry</span>
+            <span class="pill">Supplier PI Review</span>
+            <span class="pill">Supplier PO Generation</span>
+            <span class="pill">Tech Pack Evaluation</span>
+            <span class="pill">Sample Coordination</span>
+            <span class="pill">Consumption Calculation</span>
+            <span class="pill">T&A Calendar Follow-up</span>
+            <span class="pill">Vendor Negotiation</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="skill-card-title">Software & Digital Systems</h3>
+          <div class="pill-list">
+            <span class="pill">Apparel ERP Systems</span>
+            <span class="pill">Microsoft Excel (Advanced)</span>
+            <span class="pill">VLOOKUP & Formulas</span>
+            <span class="pill">Pivot Tables & Trackers</span>
+            <span class="pill">Gerber CAD (Basics)</span>
+            <span class="pill">WPS Office Suite</span>
+            <span class="pill">Inventory Management</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="skill-card-title">Textile & Professional Skills</h3>
+          <div class="pill-list">
+            <span class="pill">B.Sc. Garments Technology</span>
+            <span class="pill">Fabric GSM & Construction</span>
+            <span class="pill">Knit & Woven Basics</span>
+            <span class="pill">Dyeing & Lab Dip Rules</span>
+            <span class="pill">English (Fluent Professional)</span>
+            <span class="pill">Bangla (Native)</span>
+            <span class="pill">Conflict Resolution</span>
+            <span class="pill">Cross-functional Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education Timeline -->
+  <section style="background: var(--surface-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Background</div>
+        <h2 class="section-title">Professional Experience & Education</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+        <!-- Experience -->
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--primary);">Professional Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot done"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-role">Junior Merchandiser</div>
+                  <div class="timeline-date">Recent / Present</div>
+                </div>
+                <div class="timeline-company">Vertex RMG Division | Savar, Dhaka</div>
+                <ul class="timeline-list">
+                  <li>Review Buyer Purchase Orders (POs) and tech packs to perform accurate and timely order entries into the company ERP system.</li>
+                  <li>Cross-examine suppliers' Proforma Invoices (PIs) and generate corresponding Purchase Orders (POs) for fabrics, trims, and accessories.</li>
+                  <li>Track production progress against order deadlines to ensure smooth workflow and timely shipment execution.</li>
+                  <li>Maintain comprehensive order tracking sheets and merchandising records using Microsoft Excel and ERP tools.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot done"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-role">Moderator & Inventory Tracker</div>
+                  <div class="timeline-date">Previous</div>
+                </div>
+                <div class="timeline-company">PC PALACE BD | Dhaka, Bangladesh</div>
+                <ul class="timeline-list">
+                  <li>Managed client inquiries, tech support, and product communications for a modern computer hardware sales platform.</li>
+                  <li>Oversee online community engagement and customer service operations.</li>
+                  <li>Maintained and updated inventory Excel tracking sheets to supervise stock movements.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--primary);">Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-role">B.Sc. in Textile Engineering (Garments Tech)</div>
+                  <div class="timeline-date">In Progress</div>
+                </div>
+                <div class="timeline-company">University of South Asia / NITER | Savar, Dhaka</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Comprehensive coursework in Yarn Manufacturing, Fabric Structure & Design, Apparel Production, Dyeing & Finishing, Garment Quality Control.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-role">Higher Secondary Certificate (Science)</div>
+                  <div class="timeline-date">Passed: 2021</div>
+                </div>
+                <div class="timeline-company">Savar Government College | Savar, Dhaka</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted);"><strong>GPA: 5.00 / 5.00</strong> (Top Academic Distinction)</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-role">Secondary School Certificate (Science)</div>
+                  <div class="timeline-date">Completed</div>
+                </div>
+                <div class="timeline-company">Dhaka Board, Bangladesh</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted);"><strong>GPA: 4.56 / 5.00</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Action Box -->
+  <section id="contact" style="background: var(--surface);">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let's Discuss Merchandising Opportunities</h2>
+        <p>Available for Junior Apparel Merchandiser, Assistant Merchandiser, and RMG Order Execution positions across Savar, Ashulia, Gazipur, and Dhaka.</p>
+        <div class="contact-links">
+          <a href="mailto:mailto.sowad@gmail.com" class="btn btn-light">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Email: mailto.sowad@gmail.com
+          </a>
+          <a href="tel:+8801516520208" class="btn btn-light">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call: +880 1516-520208
+          </a>
+          <a href="https://www.linkedin.com/in/sheikhsowad/" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
+            LinkedIn Profile
+          </a>
+          <a href="https://docs.google.com/document/d/1KzZMKCLOH9EnMwpQ3XVRPzZQoM8yMaJrEQwiJ2kV2EU/edit" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
+            Google Doc CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sheikh Abdul Basit. Built for Apparel Merchandising & RMG Manufacturing Portfolio.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Workflow Step Data
+    const workflowSteps = [
+      {
+        title: "Step 1: Buyer Purchase Order (PO) Audit & Validation",
+        badge: "Order Intake Phase",
+        content: `
+          <p style="margin-bottom: 16px; color: var(--text-muted);">Before entering data into the ERP, the Junior Merchandiser must cross-examine the official Buyer PO against preliminary costing and tech pack sheets.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Critical Audit Checklist:</h4>
+              <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+                <li>Verify PO number, style code, and season reference.</li>
+                <li>Confirm total order quantity matches agreed color & size breakdown ratios.</li>
+                <li>Examine Ex-factory Date (ETD) vs. supplier material lead times.</li>
+                <li>Check Incoterms (FOB Chittagong, CIF, EXW) and payment terms (L/C, TT).</li>
+              </ul>
+            </div>
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Key Risk Mitigation:</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                Identifying discrepancies in FOB prices or delivery dates immediately prevents financial losses and air freight penalties before production scheduling begins.
+              </p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: "Step 2: ERP Order Entry & Style Generation",
+        badge: "System Booking Phase",
+        content: `
+          <p style="margin-bottom: 16px; color: var(--text-muted);">Entering validated data directly into the apparel ERP system to create unique factory job cards and routing orders.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">ERP Entry Fields:</h4>
+              <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+                <li>Internal Job Order Number generation.</li>
+                <li>Color-wise and size-wise breakdown matrix.</li>
+                <li>Target sewing line allocation and SMV benchmark.</li>
+                <li>Standard packaging specifications (single poly vs. blister pack).</li>
+              </ul>
+            </div>
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Impact on Production:</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                Accurate ERP entry enables the Planning & PPC team to load sewing lines on schedule and alerts the store room to reserve floor capacity.
+              </p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: "Step 3: Supplier Proforma Invoice (PI) Cross-Examination",
+        badge: "Procurement Verification Phase",
+        content: `
+          <p style="margin-bottom: 16px; color: var(--text-muted);">Detailed verification of fabric mills and trim vendors' Proforma Invoices against buyer approved BOM standards.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">PI Inspection Points:</h4>
+              <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+                <li>Unit price, minimum order quantity (MOQ), and surcharge terms.</li>
+                <li>Yarn composition, count, fabric construction, GSM, and finishing.</li>
+                <li>In-house lead time: verifying mill delivery matches the T&A cutting date.</li>
+                <li>Color fastness and testing compliance documentation.</li>
+              </ul>
+            </div>
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Merchandiser Responsibility:</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                Any mismatch in fabric width, GSM, or trim dimensions will directly alter marker efficiency and garment fit. The PI must be verified prior to signing.
+              </p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: "Step 4: Factory PO Generation & Material Tracking",
+        badge: "Execution & In-house Phase",
+        content: `
+          <p style="margin-bottom: 16px; color: var(--text-muted);">Issuing formal Purchase Orders to verified suppliers and establishing daily delivery tracking protocols.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Execution Activities:</h4>
+              <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
+                <li>Issue signed factory POs with strict delivery penalty clauses.</li>
+                <li>Distribute PO copies to Accounts for L/C or advance TT processing.</li>
+                <li>Coordinate with Central Store for material receiving and 4-point inspection.</li>
+                <li>Update daily Excel tracking sheet for inventory status.</li>
+              </ul>
+            </div>
+            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Shipment Guarantee:</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                Ensures 100% of raw materials and sewing trims are in-house at least 5 days before the scheduled Pre-Production (PP) meeting.
+              </p>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    function setWorkflowStep(index) {
+      const items = document.querySelectorAll('#workflowStepper .step-item');
+      items.forEach((item, i) => {
+        if (i === index) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      const box = document.getElementById('workflowDetailBox');
+      const data = workflowSteps[index];
+      box.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary);">${data.title}</h3>
+          <span class="badge badge-primary">${data.badge}</span>
+        </div>
+        ${data.content}
+      `;
+    }
+
+    // Initialize first workflow step
+    setWorkflowStep(0);
+
+    // Tab switcher
+    function switchTechTab(evt, tabId) {
+      const tabBtns = document.querySelectorAll('.tabs-nav .tab-btn');
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+      evt.currentTarget.classList.add('active');
+
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Interactive Booking Calculator
+    function calculateBooking() {
+      const qty = parseFloat(document.getElementById('calcOrderQty').value) || 0;
+      const type = document.getElementById('calcGarmentType').value;
+      const wastage = parseFloat(document.getElementById('calcWastage').value) || 0.08;
+
+      let unitConsumptionKg = 2.85; // default polo
+      let buttonsPerGarment = 3;
+
+      if (type === 'basic_tee') {
+        unitConsumptionKg = 2.10;
+        buttonsPerGarment = 0;
+      } else if (type === 'hoodie') {
+        unitConsumptionKg = 5.40;
+        buttonsPerGarment = 0;
+      }
+
+      // Dozens = qty / 12
+      const dozens = qty / 12;
+      const totalFabricKg = Math.round(dozens * unitConsumptionKg * (1 + wastage));
+      const totalButtons = Math.round(qty * buttonsPerGarment * 1.03);
+      const cartons = Math.ceil(qty / 30);
+
+      document.getElementById('resFabricKg').innerText = totalFabricKg.toLocaleString() + ' kg';
+      document.getElementById('resButtons').innerText = totalButtons.toLocaleString() + ' pcs';
+      document.getElementById('resCartons').innerText = cartons.toLocaleString() + ' ctn';
+    }
+
+    // Run initial calc
+    calculateBooking();
+  </script>
+</body>
+</html>
