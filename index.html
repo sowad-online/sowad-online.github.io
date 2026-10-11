@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sheikh Abdul Basit | Junior Apparel Merchandiser Portfolio</title>
+  <title id="metaDocTitle">Sheikh Abdul Basit | Full-Stack Web Developer & Website Engineer</title>
+  <meta name="description" content="Personal Portfolio of Full-Stack Web Developer specializing in modern responsive websites, React, Next.js, Node.js, REST APIs, and high-performance web applications ready for Git domain deployment.">
+  
+  <!-- Open Graph / Meta for Social & GitHub Previews -->
+  <meta property="og:title" content="Personal Web Developer Portfolio">
+  <meta property="og:description" content="Modern Full-Stack & Frontend Web Developer. Clean architecture, high-performance UI, and reliable web deployments.">
+  <meta property="og:type" content="website">
+
   <style>
     :root {
       --primary: #0f172a;
@@ -11,15 +18,19 @@
       --accent: #2563eb;
       --accent-hover: #1d4ed8;
       --accent-teal: #0d9488;
+      --accent-purple: #7c3aed;
       --accent-amber: #d97706;
       --surface: #ffffff;
       --surface-subtle: #f8fafc;
       --surface-card: #ffffff;
+      --surface-hover: #f1f5f9;
       --border: #e2e8f0;
       --border-focus: #94a3b8;
       --text-main: #0f172a;
       --text-muted: #64748b;
       --text-light: #94a3b8;
+      --badge-bg: #eff6ff;
+      --badge-border: #dbeafe;
       --success: #16a34a;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -28,6 +39,30 @@
       --radius-sm: 8px;
       --radius-lg: 16px;
       --transition: all 0.2s ease-in-out;
+    }
+
+    [data-theme="dark"] {
+      --primary: #f8fafc;
+      --primary-light: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-teal: #14b8a6;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+      --surface: #1e293b;
+      --surface-subtle: #0b0f19;
+      --surface-card: #1e293b;
+      --surface-hover: #334155;
+      --border: #334155;
+      --border-focus: #64748b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --badge-bg: #1e293b;
+      --badge-border: #3b82f6;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
     }
 
     * {
@@ -42,6 +77,7 @@
       background-color: var(--surface-subtle);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     a {
@@ -66,8 +102,14 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    [data-theme="dark"] header {
+      background: rgba(11, 15, 25, 0.92);
       border-bottom: 1px solid var(--border);
     }
 
@@ -75,7 +117,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      height: 72px;
     }
 
     .brand {
@@ -84,26 +126,27 @@
       gap: 12px;
       font-weight: 700;
       font-size: 1.15rem;
-      color: var(--primary);
+      color: var(--text-main);
     }
 
     .brand-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
-      background: var(--primary);
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
       color: #fff;
       border-radius: var(--radius-sm);
       font-weight: 800;
       font-size: 0.95rem;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 26px;
       list-style: none;
     }
 
@@ -118,12 +161,18 @@
       color: var(--accent);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 9px 18px;
       font-size: 0.9rem;
       font-weight: 600;
       border-radius: var(--radius-sm);
@@ -131,6 +180,7 @@
       transition: var(--transition);
       border: 1px solid transparent;
       text-decoration: none;
+      font-family: inherit;
     }
 
     .btn-primary {
@@ -148,8 +198,27 @@
       color: var(--text-main);
     }
     .btn-outline:hover {
-      background: var(--surface-subtle);
+      background: var(--surface-hover);
       border-color: var(--border-focus);
+    }
+
+    .btn-icon {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-icon:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
     }
 
     .btn-sm {
@@ -159,14 +228,14 @@
 
     /* Hero Section */
     .hero {
-      padding: 60px 0 40px;
-      background: linear-gradient(180deg, #ffffff 0%, var(--surface-subtle) 100%);
+      padding: 60px 0 48px;
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-subtle) 100%);
       border-bottom: 1px solid var(--border);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 48px;
       align-items: center;
     }
@@ -176,33 +245,47 @@
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
-      background: #eff6ff;
+      background: var(--badge-bg);
       color: var(--accent);
       border-radius: 999px;
       font-size: 0.82rem;
       font-weight: 600;
       margin-bottom: 16px;
-      border: 1px solid #dbeafe;
+      border: 1px solid var(--badge-border);
     }
 
     .hero-badge-pulse {
       width: 8px;
       height: 8px;
-      background: #2563eb;
+      background: #10b981;
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 2.65rem;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--text-main);
       line-height: 1.2;
       margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       color: var(--accent-teal);
       font-weight: 600;
       margin-bottom: 16px;
@@ -213,6 +296,7 @@
       font-size: 1.05rem;
       margin-bottom: 28px;
       max-width: 580px;
+      line-height: 1.65;
     }
 
     .hero-actions {
@@ -238,54 +322,102 @@
       gap: 8px;
     }
 
-    .hero-card {
+    /* Photo & Profile Card in Hero */
+    .profile-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 28px;
+      padding: 24px;
       box-shadow: var(--shadow);
+      position: relative;
+      text-align: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 18px;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--accent), var(--shadow);
+      background: var(--surface-subtle);
+    }
+
+    .avatar-upload-btn {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .avatar-upload-btn:hover {
+      background: var(--accent-hover);
+      transform: scale(1.08);
     }
 
     .stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .stat-card {
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      padding: 16px;
+      padding: 14px 10px;
       border-radius: var(--radius-sm);
       text-align: center;
     }
 
     .stat-value {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--text-main);
     }
 
     .stat-label {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     .live-status-pill {
       background: #f0fdf4;
       border: 1px solid #bbf7d0;
       color: #166534;
-      padding: 12px 16px;
+      padding: 12px 14px;
       border-radius: var(--radius-sm);
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       display: flex;
       align-items: center;
       gap: 10px;
+      text-align: left;
+    }
+    [data-theme="dark"] .live-status-pill {
+      background: rgba(22, 101, 52, 0.2);
+      border-color: rgba(74, 222, 128, 0.3);
+      color: #86efac;
     }
 
     /* Section Styling */
@@ -295,7 +427,7 @@
 
     .section-header {
       text-align: center;
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto 48px;
     }
 
@@ -309,15 +441,16 @@
     }
 
     .section-title {
-      font-size: 1.9rem;
+      font-size: 2rem;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--text-main);
       margin-bottom: 12px;
+      letter-spacing: -0.5px;
     }
 
     .section-desc {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 1.02rem;
     }
 
     /* Card System */
@@ -335,54 +468,7 @@
       border-color: var(--border-focus);
     }
 
-    /* Tabs Component */
-    .tabs-nav {
-      display: flex;
-      gap: 8px;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 28px;
-      overflow-x: auto;
-      padding-bottom: 2px;
-    }
-
-    .tab-btn {
-      padding: 10px 18px;
-      background: transparent;
-      border: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -4px;
-      white-space: nowrap;
-      transition: var(--transition);
-    }
-
-    .tab-btn:hover {
-      color: var(--accent);
-    }
-
-    .tab-btn.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    .tab-pane {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .tab-pane.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Workflow Stepper */
+    /* Stepper Component */
     .stepper {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -402,11 +488,11 @@
 
     .step-item:hover, .step-item.active {
       border-color: var(--accent);
-      background: #f8faff;
+      background: var(--surface-hover);
     }
 
     .step-item.active {
-      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
     }
 
     .step-num {
@@ -434,6 +520,7 @@
       font-weight: 700;
       font-size: 0.95rem;
       margin-bottom: 4px;
+      color: var(--text-main);
     }
 
     .step-desc {
@@ -448,6 +535,54 @@
       border-radius: var(--radius);
       padding: 28px;
       box-shadow: var(--shadow-sm);
+    }
+
+    /* Tabs Component */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -4px;
+      white-space: nowrap;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .tab-btn:hover {
+      color: var(--accent);
+    }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Tables */
@@ -468,9 +603,10 @@
     th {
       background: var(--surface-subtle);
       font-weight: 700;
-      color: var(--primary);
+      color: var(--text-main);
       padding: 12px 16px;
       border-bottom: 1px solid var(--border);
+      white-space: nowrap;
     }
 
     td {
@@ -484,70 +620,198 @@
     }
 
     tr:hover td {
-      background-color: #f8fafc;
+      background-color: var(--surface-hover);
     }
 
+    /* Badges & Pills */
     .badge {
       display: inline-block;
       padding: 3px 8px;
       border-radius: 4px;
       font-size: 0.75rem;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .badge-primary { background: #dbeafe; color: #1e40af; }
     .badge-success { background: #dcfce7; color: #15803d; }
     .badge-warning { background: #fef3c7; color: #b45309; }
     .badge-purple { background: #f3e8ff; color: #6b21a8; }
+    .badge-cyan { background: #cffafe; color: #0e7490; }
+
+    [data-theme="dark"] .badge-primary { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+    [data-theme="dark"] .badge-success { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+    [data-theme="dark"] .badge-warning { background: rgba(245, 158, 11, 0.2); color: #fde68a; }
+    [data-theme="dark"] .badge-purple { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; }
+    [data-theme="dark"] .badge-cyan { background: rgba(6, 182, 212, 0.2); color: #a5f3fc; }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .pill-tech {
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.76rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .project-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--badge-bg);
+      color: var(--accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .project-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+    }
+
+    .metric-val {
+      font-weight: 700;
+      color: var(--text-main);
+      text-align: right;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
 
     /* Interactive Calculator Card */
     .calc-card {
-      background: #f8fafc;
+      background: var(--surface-subtle);
       border: 1px dashed var(--border-focus);
-      padding: 20px;
+      padding: 24px;
       border-radius: var(--radius);
       margin-top: 20px;
     }
 
     .calc-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     .calc-input-group {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
 
     .calc-input-group label {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-muted);
     }
 
     .calc-input-group input, .calc-input-group select {
-      padding: 8px 12px;
+      padding: 10px 14px;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       outline: none;
-      background: #fff;
+      background: var(--surface);
+      font-family: inherit;
+      color: var(--text-main);
+      transition: var(--transition);
     }
 
-    .calc-input-group input:focus {
+    .calc-input-group input:focus, .calc-input-group select:focus {
       border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     }
 
     .calc-results {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      background: #fff;
-      padding: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: var(--surface);
+      padding: 18px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
     }
@@ -557,17 +821,58 @@
     }
 
     .calc-result-val {
-      font-weight: 700;
-      font-size: 1.15rem;
+      font-weight: 800;
+      font-size: 1.25rem;
       color: var(--accent);
     }
 
     .calc-result-lbl {
       font-size: 0.75rem;
       color: var(--text-muted);
+      margin-top: 4px;
     }
 
-    /* T&A Timeline */
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-focus);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--badge-bg);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .skill-card-title {
+      font-weight: 700;
+      font-size: 1.12rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    /* Timeline */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -612,7 +917,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 16px 20px;
+      padding: 18px 20px;
     }
 
     .timeline-header {
@@ -627,7 +932,7 @@
     .timeline-role {
       font-weight: 700;
       font-size: 1.05rem;
-      color: var(--primary);
+      color: var(--text-main);
     }
 
     .timeline-date {
@@ -650,97 +955,77 @@
     }
 
     .timeline-list li {
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-
-    .skill-card-icon {
-      width: 40px;
-      height: 40px;
+    /* Code Snippet Block */
+    .code-box {
+      background: #0f172a;
+      color: #e2e8f0;
       border-radius: var(--radius-sm);
-      background: #eff6ff;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .skill-card-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: var(--primary);
-    }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pill {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text-main);
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.84rem;
+      overflow-x: auto;
+      border: 1px solid #334155;
+      margin-top: 12px;
     }
 
     /* Contact Section */
     .contact-box {
-      background: var(--primary);
+      background: #0f172a;
       color: #fff;
       border-radius: var(--radius-lg);
-      padding: 48px;
+      padding: 56px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid #1e293b;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
+      pointer-events: none;
     }
 
     .contact-box h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+      color: #fff;
     }
 
     .contact-box p {
       color: #94a3b8;
-      max-width: 540px;
-      margin: 0 auto 32px;
+      max-width: 580px;
+      margin: 0 auto 36px;
       font-size: 1.05rem;
+      line-height: 1.6;
     }
 
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     .btn-light {
       background: #ffffff;
-      color: var(--primary);
+      color: #0f172a;
       font-weight: 600;
     }
     .btn-light:hover {
       background: #f1f5f9;
-      color: var(--primary);
+      color: #0f172a;
     }
 
     /* Footer */
@@ -748,16 +1033,142 @@
       border-top: 1px solid var(--border);
       padding: 32px 0;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      background: #fff;
+      background: var(--surface);
+    }
+
+    /* Profile Customizer Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      animation: modalFade 0.2s ease;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+      color: var(--text-main);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .form-group-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .form-group input, .form-group textarea {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      background: var(--surface-subtle);
+      color: var(--text-main);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Floating Quick Edit Pill */
+    .floating-edit-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 90;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .floating-edit-pill:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 36px;
       }
       .stepper {
         grid-template-columns: 1fr 1fr;
@@ -765,43 +1176,75 @@
       .skills-grid {
         grid-template-columns: 1fr;
       }
+      .calc-results {
+        grid-template-columns: 1fr 1fr;
+      }
+      .exp-edu-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .form-group-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .nav-links {
         display: none;
       }
       .hero-title {
-        font-size: 2rem;
+        font-size: 2.1rem;
       }
       .stepper {
         grid-template-columns: 1fr;
       }
       .contact-box {
-        padding: 32px 20px;
+        padding: 36px 20px;
+      }
+      .calc-results {
+        grid-template-columns: 1fr;
+      }
+      .floating-edit-pill {
+        bottom: 16px;
+        right: 16px;
+        padding: 8px 14px;
+        font-size: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header / Navigation -->
   <header>
     <div class="container nav-wrapper">
       <div class="brand">
-        <span class="brand-badge">SB</span>
-        <span>Sheikh Abdul Basit</span>
+        <span class="brand-badge" id="brandInitials">SB</span>
+        <span id="brandName">Sheikh Abdul Basit</span>
       </div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#workflow">Order Workflow</a></li>
-        <li><a href="#techpack">Tech Pack & BOM</a></li>
-        <li><a href="#tna">T&A Calendar</a></li>
-        <li><a href="#sampling">Sampling</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#workflow">Development Flow</a></li>
+        <li><a href="#projects">Projects & Demos</a></li>
+        <li><a href="#architecture">Architecture & Specs</a></li>
+        <li><a href="#cicd">CI/CD & Git</a></li>
+        <li><a href="#skills">Tech Stack</a></li>
       </ul>
-      <div>
-        <a href="#contact" class="btn btn-primary btn-sm">Contact Me</a>
+      <div class="nav-actions">
+        <!-- Dark / Light Theme Toggle Button -->
+        <button class="btn-icon" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+          <!-- Moon Icon (Default Light) -->
+          <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <!-- Sun Icon (Hidden in Light) -->
+          <svg id="sunIcon" style="display:none;" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+
+        <!-- Customize Details Button -->
+        <button class="btn btn-outline btn-sm" onclick="openProfileModal()" title="Customize Details">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          <span>Edit Details</span>
+        </button>
+
+        <a href="#contact" class="btn btn-primary btn-sm">Hire / Contact</a>
       </div>
     </div>
   </header>
@@ -812,574 +1255,663 @@
       <div>
         <div class="hero-badge">
           <span class="hero-badge-pulse"></span>
-          Ready for Junior Merchandiser & Order Follow-up Roles
+          <span id="heroBadgeText">Ready for Full-Stack & Frontend Web Developer Roles</span>
         </div>
-        <h1 class="hero-title">Sheikh Abdul Basit</h1>
-        <div class="hero-subtitle">Junior Apparel Merchandiser | RMG Order Specialist</div>
-        <p class="hero-bio">
-          Hands-on merchandiser with direct experience in <strong>Vertex RMG Division</strong> (Savar, Dhaka). Specializing in Buyer Purchase Order (PO) entry, Proforma Invoice (PI) verification, Tech Pack evaluation, T&A calendar tracking, and apparel ERP management.
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text" id="heroName">Sheikh Abdul Basit</span>
+        </h1>
+        <div class="hero-subtitle" id="heroSubtitle">Full-Stack Web Developer | React &bull; Next.js &bull; Node.js &bull; Git Ops</div>
+        <p class="hero-bio" id="heroBio">
+          Passionate web engineer with expertise in building responsive, scalable, and accessibility-compliant web applications. Focused on component-driven frontend architecture, clean RESTful backend integrations, database schemas, and seamless Git CI/CD deployments.
         </p>
         <div class="hero-actions">
-          <a href="#workflow" class="btn btn-primary">
-            Explore Merchandising Portfolio
+          <a href="#projects" class="btn btn-primary">
+            Explore Built Websites
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="https://docs.google.com/document/d/1KzZMKCLOH9EnMwpQ3XVRPzZQoM8yMaJrEQwiJ2kV2EU/edit" target="_blank" class="btn btn-outline">
-            View Live Google Doc CV
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          <a href="https://github.com/sheikhsowad" target="_blank" id="heroGithubBtn" class="btn btn-outline">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span id="heroGithubLabel">GitHub Repositories</span>
           </a>
         </div>
         <div class="quick-meta">
           <div class="quick-meta-item">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            Genda, Savar, Dhaka, Bangladesh
+            <span id="metaLocation">Dhaka, Bangladesh (Remote Ready)</span>
           </div>
           <div class="quick-meta-item">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            mailto.sowad@gmail.com
+            <span id="metaEmail">mailto.sowad@gmail.com</span>
           </div>
           <div class="quick-meta-item">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            +880 1516-520208
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            <span>GitHub Pages & Custom Git Domains</span>
           </div>
         </div>
       </div>
 
-      <!-- Hero Summary Card -->
-      <div class="hero-card">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--primary);">Merchandising Execution Snapshot</h3>
+      <!-- Hero Profile & Snapshot Card with Photo Upload -->
+      <div class="profile-card">
+        <!-- Avatar Photo with Click-to-Change -->
+        <div class="avatar-wrapper">
+          <img id="userAvatarImg" class="avatar-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' fill='%232563eb'/><circle cx='60' cy='46' r='24' fill='%23ffffff'/><path d='M24 106c0-20 16-36 36-36s36 16 36 36' fill='%23ffffff'/></svg>" alt="Profile Avatar">
+          <!-- Hidden File Input for Avatar Photo -->
+          <input type="file" id="avatarFileInput" accept="image/*" style="display:none;" onchange="handleAvatarFile(event)">
+          <button class="avatar-upload-btn" onclick="document.getElementById('avatarFileInput').click()" title="Add / Change Photo" aria-label="Upload Profile Photo">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="4"/></svg>
+          </button>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <h3 id="cardName" style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Sheikh Abdul Basit</h3>
+          <p id="cardTitle" style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">Full-Stack Web Developer</p>
+        </div>
+
         <div class="stat-grid">
           <div class="stat-card">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">PO Accuracy</div>
+            <div class="stat-value" id="stat1Val" style="color: var(--accent);">98+</div>
+            <div class="stat-label" id="stat1Lbl">Lighthouse Perf</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value">ERP</div>
-            <div class="stat-label">Proficient Entry</div>
+            <div class="stat-value" id="stat2Val" style="color: var(--accent-purple);">100%</div>
+            <div class="stat-label" id="stat2Lbl">Responsive UI</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value">B.Sc.</div>
-            <div class="stat-label">Textile Engineering</div>
+            <div class="stat-value" id="stat3Val" style="color: var(--accent-teal);">REST/SQL</div>
+            <div class="stat-label" id="stat3Lbl">Full-Stack Flow</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value">BOM & T&A</div>
-            <div class="stat-label">Execution Focus</div>
+            <div class="stat-value" id="stat4Val" style="color: var(--accent-amber);">CI/CD</div>
+            <div class="stat-label" id="stat4Lbl">Git Actions</div>
           </div>
         </div>
+
         <div class="live-status-pill">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <div>
-            <strong>Vertex RMG Division Experience:</strong> Routine management of buyer order sheets, supplier PIs, and production floor follow-ups.
+            <strong id="cardStatusTitle">Available for Hire:</strong> <span id="cardStatusDesc">Open for Full-Stack, Frontend engineering, and custom web builds.</span>
           </div>
+        </div>
+
+        <!-- Quick Button to Edit Photo/Details -->
+        <div style="margin-top: 14px; display: flex; gap: 8px; justify-content: center;">
+          <button class="btn btn-outline btn-sm" onclick="document.getElementById('avatarFileInput').click()" style="flex:1;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Change Photo
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="openProfileModal()" style="flex:1;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            Edit Info
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Order Workflow Section -->
+  <!-- Interactive Development Workflow Section -->
   <section id="workflow" style="background: var(--surface);">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Core Competency Case Study</div>
-        <h2 class="section-title">Order Entry & PO/PI Management Workflow</h2>
-        <p class="section-desc">Interactive demonstration of how I process orders from initial Buyer PO receipt to issuing supplier purchase orders and tracking bulk lines.</p>
+        <div class="section-tag">Production Lifecycle</div>
+        <h2 class="section-title">End-to-End Web Development Workflow</h2>
+        <p class="section-desc">Interactive breakdown of how I engineer websites from wireframe to Git repository versioning and CDN edge deployment.</p>
       </div>
 
       <!-- Stepper Buttons -->
       <div class="stepper" id="workflowStepper">
-        <div class="step-item active" onclick="setWorkflowStep(0)">
+        <div class="step-item active" onclick="setDevStep(0)">
           <div class="step-num">1</div>
-          <div class="step-title">Buyer PO Audit</div>
-          <div class="step-desc">Validation of size ratios, style specs, incoterms & ETD.</div>
+          <div class="step-title">Specs & Architecture</div>
+          <div class="step-desc">Information architecture, responsive wireframes, schema design.</div>
         </div>
-        <div class="step-item" onclick="setWorkflowStep(1)">
+        <div class="step-item" onclick="setDevStep(1)">
           <div class="step-num">2</div>
-          <div class="step-title">ERP Order Entry</div>
-          <div class="step-desc">Booking order lines, generating internal style codes.</div>
+          <div class="step-title">UI & Component Build</div>
+          <div class="step-desc">Modular React/HTML5, semantic markup, Tailwind/CSS variables.</div>
         </div>
-        <div class="step-item" onclick="setWorkflowStep(2)">
+        <div class="step-item" onclick="setDevStep(2)">
           <div class="step-num">3</div>
-          <div class="step-title">Supplier PI Audit</div>
-          <div class="step-desc">Cross-matching yarn, trims, GSM, MOQ & lead times.</div>
+          <div class="step-title">API & State Logic</div>
+          <div class="step-desc">RESTful endpoints, asynchronous queries, robust validation.</div>
         </div>
-        <div class="step-item" onclick="setWorkflowStep(3)">
+        <div class="step-item" onclick="setDevStep(3)">
           <div class="step-num">4</div>
-          <div class="step-title">Supplier PO Issuance</div>
-          <div class="step-desc">Contract signing & in-house tracking against T&A.</div>
+          <div class="step-title">Git Ops & Deployment</div>
+          <div class="step-desc">GitHub repository branch protection, CI/CD pipeline, SSL domains.</div>
         </div>
       </div>
 
       <!-- Dynamic Detail Box -->
       <div class="workflow-detail-box" id="workflowDetailBox">
-        <!-- Content will be swapped by JS -->
+        <!-- Content swapped via JavaScript -->
       </div>
     </div>
   </section>
 
-  <!-- Tech Pack & BOM Showcase -->
-  <section id="techpack" style="background: var(--surface-subtle);">
+  <!-- Projects Showcase Section -->
+  <section id="projects" style="background: var(--surface-subtle);">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Technical Garment Breakdown</div>
-        <h2 class="section-title">Tech Pack Analysis & Bill of Materials (BOM)</h2>
-        <p class="section-desc">Demonstration sample for a classic 100% Combed Cotton Men's Pique Polo Shirt (Order: 10,000 pcs across 3 colorways).</p>
+        <div class="section-tag">Portfolio Repositories</div>
+        <h2 class="section-title">Featured Web Builds & Applications</h2>
+        <p class="section-desc">Production-ready websites and web applications built with modern tools, complete with clean Git commits and live previews.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+              </div>
+              <span class="badge badge-success">Production Ready</span>
+            </div>
+            <h3 class="project-title">NexStore E-Commerce Platform</h3>
+            <p class="project-desc">
+              High-converting responsive online store featuring product catalog filtering, dynamic cart state management, checkout validation, and Stripe webhook handling.
+            </p>
+            <div class="project-metrics">
+              <div>
+                <span class="metric-label">Lighthouse:</span>
+                <span class="metric-val">99 / 100</span>
+              </div>
+              <div>
+                <span class="metric-label">Load Time:</span>
+                <span class="metric-val">&lt; 0.8s</span>
+              </div>
+            </div>
+            <div class="pill-list" style="margin-bottom: 12px;">
+              <span class="pill-tech">Next.js</span>
+              <span class="pill-tech">TypeScript</span>
+              <span class="pill-tech">Tailwind CSS</span>
+              <span class="pill-tech">Node.js</span>
+              <span class="pill-tech">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sheikhsowad" target="_blank" class="btn btn-outline btn-sm dynamic-github-link" style="flex: 1;">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View Code
+            </a>
+            <a href="#contact" class="btn btn-primary btn-sm" style="flex: 1;">
+              Live Demo
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <span class="badge badge-primary">SaaS App</span>
+            </div>
+            <h3 class="project-title">CloudMetrics Analytics Dashboard</h3>
+            <p class="project-desc">
+              Real-time analytics dashboard with interactive data charts, WebSocket streaming, user authentication, role-based access control, and dark/light mode toggle.
+            </p>
+            <div class="project-metrics">
+              <div>
+                <span class="metric-label">Bundle Size:</span>
+                <span class="metric-val">&lt; 140 KB</span>
+              </div>
+              <div>
+                <span class="metric-label">Live Updates:</span>
+                <span class="metric-val">WebSockets</span>
+              </div>
+            </div>
+            <div class="pill-list" style="margin-bottom: 12px;">
+              <span class="pill-tech">React</span>
+              <span class="pill-tech">Chart.js</span>
+              <span class="pill-tech">Express API</span>
+              <span class="pill-tech">MongoDB</span>
+              <span class="pill-tech">JWT Auth</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sheikhsowad" target="_blank" class="btn btn-outline btn-sm dynamic-github-link" style="flex: 1;">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View Code
+            </a>
+            <a href="#contact" class="btn btn-primary btn-sm" style="flex: 1;">
+              Live Demo
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <div class="project-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+              </div>
+              <span class="badge badge-purple">Git Domain Ready</span>
+            </div>
+            <h3 class="project-title">Personal Agency & Portfolio Hub</h3>
+            <p class="project-desc">
+              Zero-dependency, ultra-fast landing website optimized for deployment on GitHub Pages (`username.github.io`). Perfect Core Web Vitals score, SEO structured data, and contact capture.
+            </p>
+            <div class="project-metrics">
+              <div>
+                <span class="metric-label">GitHub Pages:</span>
+                <span class="metric-val">Automated</span>
+              </div>
+              <div>
+                <span class="metric-label">SEO Score:</span>
+                <span class="metric-val">100 / 100</span>
+              </div>
+            </div>
+            <div class="pill-list" style="margin-bottom: 12px;">
+              <span class="pill-tech">HTML5 Semantic</span>
+              <span class="pill-tech">Vanilla JS</span>
+              <span class="pill-tech">CSS Custom Props</span>
+              <span class="pill-tech">GitHub Actions</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/sheikhsowad" target="_blank" class="btn btn-outline btn-sm dynamic-github-link" style="flex: 1;">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View Code
+            </a>
+            <a href="#contact" class="btn btn-primary btn-sm" style="flex: 1;">
+              Live Demo
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture, Specs & Interactive Estimator -->
+  <section id="architecture" style="background: var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Technical Engineering</div>
+        <h2 class="section-title">Web Architecture & Project Estimator</h2>
+        <p class="section-desc">Inspect API endpoints, performance metrics, and use the interactive calculator to estimate development sprints and resource footprints.</p>
       </div>
 
       <div class="card">
         <div class="tabs-nav">
-          <button class="tab-btn active" onclick="switchTechTab(event, 'bom-tab')">Bill of Materials (BOM) Sheet</button>
-          <button class="tab-btn" onclick="switchTechTab(event, 'spec-tab')">Measurement & Tolerance Spec</button>
-          <button class="tab-btn" onclick="switchTechTab(event, 'calculator-tab')">Interactive Consumption Calculator</button>
+          <button class="tab-btn active" onclick="switchTechTab(event, 'api-tab')">REST API & Data Contracts</button>
+          <button class="tab-btn" onclick="switchTechTab(event, 'perf-tab')">Core Web Vitals & Performance</button>
+          <button class="tab-btn" onclick="switchTechTab(event, 'estimator-tab')">Interactive Website Build Estimator</button>
         </div>
 
-        <!-- BOM Pane -->
-        <div class="tab-pane active" id="bom-tab">
+        <!-- Tab 1: API & Data Contracts -->
+        <div class="tab-pane active" id="api-tab">
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Item Code</th>
-                  <th>Category</th>
-                  <th>Description / Specification</th>
-                  <th>Consumption / Dz</th>
-                  <th>Wastage %</th>
-                  <th>Supplier Type</th>
+                  <th>Method & Route</th>
+                  <th>Payload / Params</th>
+                  <th>Response Schema</th>
+                  <th>Auth & Middleware</th>
+                  <th>Caching / Edge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code><span class="badge badge-success">GET</span> /api/v1/projects</code></td>
+                  <td><code>category, limit, cursor</code></td>
+                  <td><code>{ data: Project[], meta: Pagination }</code></td>
+                  <td>Public (Rate limited: 100 req/min)</td>
+                  <td><span class="badge badge-primary">Cloudflare CDN (300s)</span></td>
+                </tr>
+                <tr>
+                  <td><code><span class="badge badge-primary">POST</span> /api/v1/leads</code></td>
+                  <td><code>{ name, email, message, budget }</code></td>
+                  <td><code>{ success: true, leadId: string }</code></td>
+                  <td>CSRF Protection + Zod Validation</td>
+                  <td><span class="badge badge-warning">No Cache (Transactional)</span></td>
+                </tr>
+                <tr>
+                  <td><code><span class="badge badge-purple">POST</span> /api/v1/auth/login</code></td>
+                  <td><code>{ email, password }</code></td>
+                  <td><code>{ user: User, token: JWT }</code></td>
+                  <td>Bcrypt (12 rounds) + HttpOnly Cookie</td>
+                  <td><span class="badge badge-warning">Strict Auth Gate</span></td>
+                </tr>
+                <tr>
+                  <td><code><span class="badge badge-success">GET</span> /api/v1/analytics/realtime</code></td>
+                  <td><code>timeframe, metric</code></td>
+                  <td><code>{ timestamps: string[], values: number[] }</code></td>
+                  <td>Bearer JWT + Role: Admin</td>
+                  <td><span class="badge badge-cyan">Redis Cache (10s TTL)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
+            * Designed following Open API 3.0 standards with type-safe Zod runtime validation and automatic TypeScript typings.
+          </div>
+        </div>
+
+        <!-- Tab 2: Performance Specs -->
+        <div class="tab-pane" id="perf-tab">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Target Benchmark</th>
+                  <th>Achieved Score</th>
+                  <th>Optimization Technique Applied</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>FB-101</strong></td>
-                  <td>Main Body</td>
-                  <td>100% Combed Cotton Pique, 210 GSM, Reactive Dyed</td>
-                  <td>2.85 kg / Dz</td>
-                  <td>7%</td>
-                  <td>Nominated Mill</td>
-                  <td><span class="badge badge-success">Lab Dip Approved</span></td>
+                  <td><strong>LCP (Largest Contentful Paint)</strong></td>
+                  <td>&lt; 2.5s</td>
+                  <td><strong>0.92s</strong></td>
+                  <td>Preloaded hero assets, AVIF/WebP responsive modern formats</td>
+                  <td><span class="badge badge-success">Excellent</span></td>
                 </tr>
                 <tr>
-                  <td><strong>FB-102</strong></td>
-                  <td>Collar & Cuff</td>
-                  <td>1x1 Flat Knit Rib Collar & Cuff, DTM</td>
-                  <td>0.45 kg / Dz</td>
-                  <td>5%</td>
-                  <td>In-house Knitting</td>
-                  <td><span class="badge badge-success">Approved</span></td>
+                  <td><strong>INP (Interaction to Next Paint)</strong></td>
+                  <td>&lt; 200ms</td>
+                  <td><strong>42ms</strong></td>
+                  <td>Debounced input listeners, deferred long tasks via Web Workers</td>
+                  <td><span class="badge badge-success">Optimal</span></td>
                 </tr>
                 <tr>
-                  <td><strong>TR-201</strong></td>
-                  <td>Sewing Thread</td>
-                  <td>100% Spun Polyester 40/2 DTM</td>
-                  <td>180 meters / Dz</td>
-                  <td>10%</td>
-                  <td>Local Sourced</td>
-                  <td><span class="badge badge-primary">PO Issued</span></td>
+                  <td><strong>CLS (Cumulative Layout Shift)</strong></td>
+                  <td>&lt; 0.1</td>
+                  <td><strong>0.00</strong></td>
+                  <td>Explicit aspect ratio boxes, fallback font metric matching</td>
+                  <td><span class="badge badge-success">Zero Shift</span></td>
                 </tr>
                 <tr>
-                  <td><strong>TR-202</strong></td>
-                  <td>Button</td>
-                  <td>18L 2-Hole Pearl Polyester Button, Laser Engraved</td>
-                  <td>36 pcs / Dz (3/garment)</td>
-                  <td>3%</td>
-                  <td>Buyer Nominated</td>
-                  <td><span class="badge badge-success">In-house</span></td>
+                  <td><strong>First Contentful Paint (FCP)</strong></td>
+                  <td>&lt; 1.8s</td>
+                  <td><strong>0.65s</strong></td>
+                  <td>Critical CSS inlining, HTTP/3 multiplexing, tree-shaking</td>
+                  <td><span class="badge badge-success">Ultra Fast</span></td>
                 </tr>
                 <tr>
-                  <td><strong>TR-203</strong></td>
-                  <td>Interlining</td>
-                  <td>Non-woven fusible interlining for placket & collar stand</td>
-                  <td>0.12 m / Dz</td>
-                  <td>5%</td>
-                  <td>Approved Vendor</td>
-                  <td><span class="badge badge-primary">PI Received</span></td>
-                </tr>
-                <tr>
-                  <td><strong>PK-301</strong></td>
-                  <td>Packaging</td>
-                  <td>Self-adhesive Polybag (Recycled LDPE with warning print)</td>
-                  <td>12 pcs / Dz</td>
-                  <td>2%</td>
-                  <td>Local Supplier</td>
-                  <td><span class="badge badge-warning">Sample Pending</span></td>
+                  <td><strong>Accessibility (WCAG 2.1 AA)</strong></td>
+                  <td>100%</td>
+                  <td><strong>100%</strong></td>
+                  <td>Semantic landmarks, ARIA labels, 4.5:1 minimum contrast ratio</td>
+                  <td><span class="badge badge-success">Compliant</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
-            * Standard calculation model used at Vertex RMG Division to prevent fabric shortages and excess dead stock.
+            Audited using Google Lighthouse, PageSpeed Insights, and WebPageTest real-user monitoring (RUM).
           </div>
         </div>
 
-        <!-- Spec Pane -->
-        <div class="tab-pane" id="spec-tab">
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Point of Measure (POM)</th>
-                  <th>Tol (+/-)</th>
-                  <th>Size S</th>
-                  <th>Size M</th>
-                  <th>Size L</th>
-                  <th>Size XL</th>
-                  <th>Size XXL</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1/2 Chest (2.5cm below armhole)</td>
-                  <td>0.7 cm</td>
-                  <td>50.0</td>
-                  <td>53.0</td>
-                  <td>56.0</td>
-                  <td>59.0</td>
-                  <td>62.0</td>
-                </tr>
-                <tr>
-                  <td>Body Length (HPS to bottom)</td>
-                  <td>1.0 cm</td>
-                  <td>70.0</td>
-                  <td>72.0</td>
-                  <td>74.0</td>
-                  <td>76.0</td>
-                  <td>78.0</td>
-                </tr>
-                <tr>
-                  <td>Across Shoulder (Seam to Seam)</td>
-                  <td>0.5 cm</td>
-                  <td>43.0</td>
-                  <td>45.0</td>
-                  <td>47.0</td>
-                  <td>49.0</td>
-                  <td>51.0</td>
-                </tr>
-                <tr>
-                  <td>Sleeve Length (From shoulder)</td>
-                  <td>0.5 cm</td>
-                  <td>21.0</td>
-                  <td>22.0</td>
-                  <td>23.0</td>
-                  <td>24.0</td>
-                  <td>25.0</td>
-                </tr>
-                <tr>
-                  <td>Placket Length x Width</td>
-                  <td>0.3 cm</td>
-                  <td>16 x 3.2</td>
-                  <td>16 x 3.2</td>
-                  <td>17 x 3.2</td>
-                  <td>17 x 3.2</td>
-                  <td>17 x 3.2</td>
-                </tr>
-                <tr>
-                  <td>Neck Width (Seam to Seam)</td>
-                  <td>0.4 cm</td>
-                  <td>18.5</td>
-                  <td>19.0</td>
-                  <td>19.5</td>
-                  <td>20.0</td>
-                  <td>20.5</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
-            All measurements in centimeters (cm). Used for Fit Sample and Pre-Production (PP) cross-inspection against Gerber CAD pattern data.
-          </div>
-        </div>
-
-        <!-- Interactive Calculator Pane -->
-        <div class="tab-pane" id="calculator-tab">
+        <!-- Tab 3: Interactive Website Build Estimator -->
+        <div class="tab-pane" id="estimator-tab">
           <div class="calc-card">
-            <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary);">Real-time Garment Booking Estimator</h4>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Real-time Website Scope & Timeline Estimator</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">
+              Configure your desired project parameters to calculate development hours, sprint milestones, and recommended architectural stack.
+            </p>
+            
             <div class="calc-row">
               <div class="calc-input-group">
-                <label>Order Quantity (Pcs)</label>
-                <input type="number" id="calcOrderQty" value="6000" min="100" step="500" oninput="calculateBooking()">
-              </div>
-              <div class="calc-input-group">
-                <label>Garment Type</label>
-                <select id="calcGarmentType" onchange="calculateBooking()">
-                  <option value="pique_polo">Pique Polo (210 GSM) - 2.85 kg/Dz</option>
-                  <option value="basic_tee">Basic Crew T-Shirt (160 GSM) - 2.10 kg/Dz</option>
-                  <option value="hoodie">Fleece Hoodie (280 GSM) - 5.40 kg/Dz</option>
+                <label>Website Type / Scope</label>
+                <select id="calcSiteType" onchange="calculateDevEstimate()">
+                  <option value="landing">Modern Landing Page (Portfolio / Marketing)</option>
+                  <option value="corporate">Multi-page Corporate Website (5-10 Pages)</option>
+                  <option value="webapp" selected>Full-Stack Web App (Auth + DB + Dashboard)</option>
+                  <option value="ecommerce">E-Commerce Platform (Catalog + Stripe Checkout)</option>
                 </select>
               </div>
+
               <div class="calc-input-group">
-                <label>Cutting & Process Wastage</label>
-                <select id="calcWastage" onchange="calculateBooking()">
-                  <option value="0.06">6% Standard Safe</option>
-                  <option value="0.08" selected>8% Recommended Buffer</option>
-                  <option value="0.10">10% Complex Shade/Print</option>
+                <label>Dynamic Interactive Features</label>
+                <select id="calcFeatures" onchange="calculateDevEstimate()">
+                  <option value="standard">Standard (Forms, Animations, SEO)</option>
+                  <option value="advanced" selected>Advanced (API Integrations, CMS, Search)</option>
+                  <option value="custom">Enterprise (Real-time Sockets, Role ACL, Payments)</option>
+                </select>
+              </div>
+
+              <div class="calc-input-group">
+                <label>Deployment Target</label>
+                <select id="calcDeployment" onchange="calculateDevEstimate()">
+                  <option value="git" selected>GitHub Pages / Git Domain (Static/Edge)</option>
+                  <option value="vercel">Vercel / Netlify (Serverless SSR)</option>
+                  <option value="cloud">Dockerized VPS / AWS Cloud (Node.js/DB)</option>
                 </select>
               </div>
             </div>
 
             <div class="calc-results">
               <div class="calc-result-item">
-                <div class="calc-result-val" id="resFabricKg">1,539 kg</div>
-                <div class="calc-result-lbl">Total Body Fabric Booking</div>
+                <div class="calc-result-val" id="resDuration">2 - 3 Weeks</div>
+                <div class="calc-result-lbl">Estimated Sprint Time</div>
               </div>
               <div class="calc-result-item">
-                <div class="calc-result-val" id="resButtons">18,540 pcs</div>
-                <div class="calc-result-lbl">Buttons (Inc. 3% buffer)</div>
+                <div class="calc-result-val" id="resStoryPoints">45 SP</div>
+                <div class="calc-result-lbl">Agile Story Points</div>
               </div>
               <div class="calc-result-item">
-                <div class="calc-result-val" id="resCartons">200 ctn</div>
-                <div class="calc-result-lbl">Master Cartons (30 pcs/ctn)</div>
+                <div class="calc-result-val" id="resPerformance">98+ Score</div>
+                <div class="calc-result-lbl">Lighthouse Target</div>
+              </div>
+              <div class="calc-result-item">
+                <div class="calc-result-val" id="resStack">React + Node</div>
+                <div class="calc-result-lbl">Recommended Stack</div>
               </div>
             </div>
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">
-              Formula: <code>(Order Qty / 12) * Unit Consumption * (1 + Wastage %)</code>. Demonstrates practical mathematical estimation applied in daily supplier PI verification.
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 14px; line-height: 1.5;">
+              Formula: Based on standard Agile velocity, responsive modular testing, cross-browser verification, and automated GitHub CI/CD build scripts.
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Time & Action (T&A) Calendar -->
-  <section id="tna" style="background: var(--surface);">
+  <!-- CI/CD & Git Deployment Path Section -->
+  <section id="cicd" style="background: var(--surface-subtle);">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Critical Path Management</div>
-        <h2 class="section-title">Time & Action (T&A) Execution Plan</h2>
-        <p class="section-desc">Sample 55-Day Lead Time Critical Path for Export Garment Orders. Merchandiser follow-up ensures zero shipment delays.</p>
+        <div class="section-tag">DevOps & Git Operations</div>
+        <h2 class="section-title">Git Domain & CI/CD Deployment Pipeline</h2>
+        <p class="section-desc">Every release follows automated linting, test suites, branch protection, and instant zero-downtime deployment to GitHub Pages or custom domains.</p>
       </div>
 
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Lead Day</th>
-              <th>Key Event / Milestone</th>
-              <th>Primary Action</th>
-              <th>Responsible Dept</th>
-              <th>Critical Status</th>
+              <th>Pipeline Stage</th>
+              <th>Trigger & Branch</th>
+              <th>Automated Action</th>
+              <th>Quality Gate / Tests</th>
+              <th>Deployment Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Day 01–03</strong></td>
-              <td>Order Confirmation & Tech Pack</td>
-              <td>Review buyer PO, tech pack audit, enter into ERP</td>
-              <td>Merchandising</td>
-              <td><span class="badge badge-success">Completed</span></td>
+              <td><strong>Stage 01: Branch & Lint</strong></td>
+              <td><code>git push feature/*</code></td>
+              <td>ESLint, Prettier, TypeScript compiler checks</td>
+              <td>0 Syntax Errors, Type check pass</td>
+              <td><span class="badge badge-success">Passing</span></td>
             </tr>
             <tr>
-              <td><strong>Day 04–08</strong></td>
-              <td>Lab Dip & Yarn Booking</td>
-              <td>Issue supplier PO for yarn, submit lab dips A, B, C</td>
-              <td>Dyeing & Merchandiser</td>
-              <td><span class="badge badge-success">Completed</span></td>
+              <td><strong>Stage 02: Unit & E2E Testing</strong></td>
+              <td>Pull Request &rarr; <code>main</code></td>
+              <td>Vitest unit testing & Playwright browser tests</td>
+              <td>&gt; 90% Code Coverage verification</td>
+              <td><span class="badge badge-success">Automated CI</span></td>
             </tr>
             <tr>
-              <td><strong>Day 10–15</strong></td>
-              <td>Fit Sample Submission</td>
-              <td>Produce fit sample on available fabric, courier to buyer</td>
-              <td>Sample Room & QA</td>
-              <td><span class="badge badge-success">Approved</span></td>
+              <td><strong>Stage 03: Build & Asset Optimization</strong></td>
+              <td>Merge &rarr; <code>main</code></td>
+              <td>Vite / Next.js production build, SVG optimization, tree shaking</td>
+              <td>Bundle analyzer &lt; 200KB gzip target</td>
+              <td><span class="badge badge-primary">Optimized</span></td>
             </tr>
             <tr>
-              <td><strong>Day 16–22</strong></td>
-              <td>Bulk Fabric Knitting & Dyeing</td>
-              <td>Monitor lot quality, 4-point fabric inspection, shrinkage test</td>
-              <td>Fabric QA & Mill</td>
-              <td><span class="badge badge-primary">On Schedule</span></td>
+              <td><strong>Stage 04: GitHub Pages Deploy</strong></td>
+              <td>GitHub Actions Workflow</td>
+              <td>Deploy compiled artifact to <code>gh-pages</code> or edge CDN</td>
+              <td>Lighthouse CI audit run</td>
+              <td><span class="badge badge-purple">Live on Git Domain</span></td>
             </tr>
             <tr>
-              <td><strong>Day 23–28</strong></td>
-              <td>Trims In-house & Size Set</td>
-              <td>100% accessories in-house against PI, verify size set fit</td>
-              <td>Store & Merchandiser</td>
-              <td><span class="badge badge-primary">In Progress</span></td>
-            </tr>
-            <tr>
-              <td><strong>Day 29–31</strong></td>
-              <td>Pre-Production (PP) Meeting</td>
-              <td>Floor meeting with Production Manager, QA Head & Line Supervisor</td>
-              <td>Factory Operations</td>
-              <td><span class="badge badge-warning">Critical Gateway</span></td>
-            </tr>
-            <tr>
-              <td><strong>Day 32–44</strong></td>
-              <td>Bulk Cutting & Sewing Lines</td>
-              <td>Monitor line efficiency, daily output tracking, TOP sample pull</td>
-              <td>Production & Merch</td>
-              <td><span class="badge badge-warning">Scheduled</span></td>
-            </tr>
-            <tr>
-              <td><strong>Day 45–50</strong></td>
-              <td>Washing, Finishing & Packing</td>
-              <td>Thread trimming, pressing, tagging, carton packing</td>
-              <td>Finishing Section</td>
-              <td><span class="badge badge-warning">Scheduled</span></td>
-            </tr>
-            <tr>
-              <td><strong>Day 51–53</strong></td>
-              <td>Final Quality Inspection (FRI)</td>
-              <td>Buyer QA / Third Party (AQL 2.5/4.0 standard inspection)</td>
-              <td>Buyer QA & Factory QA</td>
-              <td><span class="badge badge-purple">Inspection Gate</span></td>
-            </tr>
-            <tr>
-              <td><strong>Day 54–55</strong></td>
-              <td>Ex-Factory & Port Handover</td>
-              <td>Forwarder booking, shipping documents dispatch, invoice</td>
-              <td>Commercial & Merch</td>
-              <td><span class="badge badge-purple">Final Shipment</span></td>
+              <td><strong>Stage 05: DNS & SSL Validation</strong></td>
+              <td>Custom Domain CNAME</td>
+              <td>Enforce HTTPS, HSTS preload, global edge cache</td>
+              <td>SSL A+ Rating, global DNS propagation</td>
+              <td><span class="badge badge-success">Secure 200 OK</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
 
-  <!-- Sample Development Cycle -->
-  <section id="sampling" style="background: var(--surface-subtle);">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Sampling Lifecycle</div>
-        <h2 class="section-title">Sample Development & Approval Stages</h2>
-        <p class="section-desc">From initial proto to final ex-factory shipment, maintaining clear approval logs is the core of sample follow-up.</p>
-      </div>
-
-      <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 01</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Proto Sample</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Evaluates aesthetic silhouette and preliminary styling using available fabric quality.</p>
-          <div class="pill">Focus: Design & Silhouette</div>
-        </div>
-
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 02</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Fit Sample</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Strict measurement validation on mannequin/live models. Log buyer fit comments into CAD.</p>
-          <div class="pill">Focus: Measurements & Tolerances</div>
-        </div>
-
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 03</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Size Set Sample</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Verifies proportional grading across the full size curve (XS to 3XL) before bulk cutting.</p>
-          <div class="pill">Focus: Grading Balance</div>
-        </div>
-
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 04</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">PP Sample (Pre-Production)</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Made with 100% actual bulk fabric and production trims. Mandatory benchmark for the PP meeting.</p>
-          <div class="pill">Focus: Bulk Quality Standard</div>
-        </div>
-
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 05</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">TOP (Top of Production)</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Pulled from first 100 bulk sewn garments to ensure production mirrors the signed PP sample.</p>
-          <div class="pill">Focus: Sewing Line Replication</div>
-        </div>
-
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px;">STAGE 06</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Shipment / Retention Sample</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Randomly pulled from final packed cartons for buyer record keeping and factory archive.</p>
-          <div class="pill">Focus: Final Pack Audit</div>
+      <!-- Git Actions Sample Code Block -->
+      <div style="margin-top: 24px;">
+        <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Sample GitHub Actions Deployment Workflow (`.github/workflows/deploy.yml`):</h4>
+        <div class="code-box">
+name: Deploy Website to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Technical Competencies & Systems -->
+  <!-- Technical Competencies & Tech Stack -->
   <section id="skills" style="background: var(--surface);">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Capabilities</div>
-        <h2 class="section-title">Technical Skills & Software Tools</h2>
-        <p class="section-desc">Practical proficiency applied daily in textile manufacturing environments.</p>
+        <h2 class="section-title">Technical Skills & Web Technologies</h2>
+        <p class="section-desc">Practical technologies applied across modern web development stacks.</p>
       </div>
 
       <div class="skills-grid">
+        <!-- Frontend -->
         <div class="skill-card">
           <div class="skill-card-icon">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
-          <h3 class="skill-card-title">Merchandising Operations</h3>
+          <h3 class="skill-card-title">Frontend Engineering</h3>
           <div class="pill-list">
-            <span class="pill">Buyer PO Entry</span>
-            <span class="pill">Supplier PI Review</span>
-            <span class="pill">Supplier PO Generation</span>
-            <span class="pill">Tech Pack Evaluation</span>
-            <span class="pill">Sample Coordination</span>
-            <span class="pill">Consumption Calculation</span>
-            <span class="pill">T&A Calendar Follow-up</span>
-            <span class="pill">Vendor Negotiation</span>
+            <span class="pill">HTML5 (Semantic)</span>
+            <span class="pill">CSS3 & CSS Grid</span>
+            <span class="pill">JavaScript (ES6+)</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">React.js</span>
+            <span class="pill">Next.js</span>
+            <span class="pill">Tailwind CSS</span>
+            <span class="pill">Responsive UI</span>
+            <span class="pill">State Management</span>
+            <span class="pill">Web Accessibility (a11y)</span>
           </div>
         </div>
 
+        <!-- Backend & Databases -->
         <div class="skill-card">
           <div class="skill-card-icon">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
           </div>
-          <h3 class="skill-card-title">Software & Digital Systems</h3>
+          <h3 class="skill-card-title">Backend & Database</h3>
           <div class="pill-list">
-            <span class="pill">Apparel ERP Systems</span>
-            <span class="pill">Microsoft Excel (Advanced)</span>
-            <span class="pill">VLOOKUP & Formulas</span>
-            <span class="pill">Pivot Tables & Trackers</span>
-            <span class="pill">Gerber CAD (Basics)</span>
-            <span class="pill">WPS Office Suite</span>
-            <span class="pill">Inventory Management</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">Express.js</span>
+            <span class="pill">RESTful APIs</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">MongoDB</span>
+            <span class="pill">Prisma ORM</span>
+            <span class="pill">JWT Authentication</span>
+            <span class="pill">CRUD Operations</span>
+            <span class="pill">Data Validation (Zod)</span>
           </div>
         </div>
 
+        <!-- Git, DevOps & Tools -->
         <div class="skill-card">
           <div class="skill-card-icon">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
           </div>
-          <h3 class="skill-card-title">Textile & Professional Skills</h3>
+          <h3 class="skill-card-title">DevOps, Git & Tooling</h3>
           <div class="pill-list">
-            <span class="pill">B.Sc. Garments Technology</span>
-            <span class="pill">Fabric GSM & Construction</span>
-            <span class="pill">Knit & Woven Basics</span>
-            <span class="pill">Dyeing & Lab Dip Rules</span>
-            <span class="pill">English (Fluent Professional)</span>
-            <span class="pill">Bangla (Native)</span>
-            <span class="pill">Conflict Resolution</span>
-            <span class="pill">Cross-functional Teamwork</span>
+            <span class="pill">Git & GitHub</span>
+            <span class="pill">GitHub Pages (Git Domain)</span>
+            <span class="pill">GitHub Actions CI/CD</span>
+            <span class="pill">Vercel & Netlify</span>
+            <span class="pill">Vite & Webpack</span>
+            <span class="pill">Postman API Testing</span>
+            <span class="pill">Lighthouse Audits</span>
+            <span class="pill">Chrome DevTools</span>
+            <span class="pill">VS Code</span>
+            <span class="pill">Agile / Scrum</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience & Education Timeline -->
+  <!-- Experience & Education Section -->
   <section style="background: var(--surface-subtle);">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Background</div>
-        <h2 class="section-title">Professional Experience & Education</h2>
+        <div class="section-tag">Track Record</div>
+        <h2 class="section-title">Experience & Education</h2>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div class="exp-edu-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
         <!-- Experience -->
         <div>
-          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--primary);">Professional Experience</h3>
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--text-main);">Development & Professional Experience</h3>
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-dot done"></div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <div class="timeline-role">Junior Merchandiser</div>
+                  <div class="timeline-role">Web Developer & Frontend Specialist</div>
                   <div class="timeline-date">Recent / Present</div>
                 </div>
-                <div class="timeline-company">Vertex RMG Division | Savar, Dhaka</div>
+                <div class="timeline-company">Independent & Client Projects | Dhaka, Bangladesh</div>
                 <ul class="timeline-list">
-                  <li>Review Buyer Purchase Orders (POs) and tech packs to perform accurate and timely order entries into the company ERP system.</li>
-                  <li>Cross-examine suppliers' Proforma Invoices (PIs) and generate corresponding Purchase Orders (POs) for fabrics, trims, and accessories.</li>
-                  <li>Track production progress against order deadlines to ensure smooth workflow and timely shipment execution.</li>
-                  <li>Maintain comprehensive order tracking sheets and merchandising records using Microsoft Excel and ERP tools.</li>
+                  <li>Engineered custom responsive websites, dynamic web tools, and web portfolios using HTML5, CSS3, modern JavaScript, and React.</li>
+                  <li>Configured Git repositories, GitHub Pages deployments, custom CNAME records, and SSL certificates for zero-downtime hosting.</li>
+                  <li>Conducted Core Web Vitals optimization achieving 95+ performance scores and mobile-first responsiveness.</li>
+                  <li>Integrated REST APIs with asynchronous error handling and schema validation.</li>
                 </ul>
               </div>
             </div>
@@ -1388,14 +1920,27 @@
               <div class="timeline-dot done"></div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <div class="timeline-role">Moderator & Inventory Tracker</div>
-                  <div class="timeline-date">Previous</div>
+                  <div class="timeline-role">Order Systems & Digital Follow-up</div>
+                  <div class="timeline-date">Vertex RMG Division</div>
                 </div>
-                <div class="timeline-company">PC PALACE BD | Dhaka, Bangladesh</div>
+                <div class="timeline-company">Industrial Operations | Savar, Dhaka</div>
                 <ul class="timeline-list">
-                  <li>Managed client inquiries, tech support, and product communications for a modern computer hardware sales platform.</li>
-                  <li>Oversee online community engagement and customer service operations.</li>
-                  <li>Maintained and updated inventory Excel tracking sheets to supervise stock movements.</li>
+                  <li>Managed ERP databases, digital purchase order matrices, and inventory accuracy with high attention to detail.</li>
+                  <li>Streamlined tracking workflows through spreadsheet automation and systematic verification methods.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot done"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-role">Moderator & Platform Support</div>
+                  <div class="timeline-date">PC PALACE BD</div>
+                </div>
+                <div class="timeline-company">Computer Systems Platform | Dhaka</div>
+                <ul class="timeline-list">
+                  <li>Managed online customer inquiries, digital inventory trackers, and platform communications.</li>
                 </ul>
               </div>
             </div>
@@ -1404,41 +1949,47 @@
 
         <!-- Education -->
         <div>
-          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--primary);">Education</h3>
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--text-main);">Education & Academic Distinction</h3>
           <div class="timeline">
             <div class="timeline-item">
-              <div class="timeline-dot"></div>
+              <div class="timeline-dot done"></div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <div class="timeline-role">B.Sc. in Textile Engineering (Garments Tech)</div>
+                  <div class="timeline-role">B.Sc. Engineering Studies</div>
                   <div class="timeline-date">In Progress</div>
                 </div>
-                <div class="timeline-company">University of South Asia / NITER | Savar, Dhaka</div>
-                <p style="font-size: 0.88rem; color: var(--text-muted);">Comprehensive coursework in Yarn Manufacturing, Fabric Structure & Design, Apparel Production, Dyeing & Finishing, Garment Quality Control.</p>
+                <div class="timeline-company">University of South Asia / NITER | Dhaka</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">
+                  Strong technical foundation covering computational logic, engineering mathematics, quality systems, project management, and automated workflow tracking.
+                </p>
               </div>
             </div>
 
             <div class="timeline-item">
-              <div class="timeline-dot"></div>
+              <div class="timeline-dot done"></div>
               <div class="timeline-content">
                 <div class="timeline-header">
                   <div class="timeline-role">Higher Secondary Certificate (Science)</div>
-                  <div class="timeline-date">Passed: 2021</div>
+                  <div class="timeline-date">Completed: 2021</div>
                 </div>
                 <div class="timeline-company">Savar Government College | Savar, Dhaka</div>
-                <p style="font-size: 0.88rem; color: var(--text-muted);"><strong>GPA: 5.00 / 5.00</strong> (Top Academic Distinction)</p>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">
+                  <strong>GPA: 5.00 / 5.00</strong> (Highest Distinction in Physics, Mathematics & Computer Science).
+                </p>
               </div>
             </div>
 
             <div class="timeline-item">
-              <div class="timeline-dot"></div>
+              <div class="timeline-dot done"></div>
               <div class="timeline-content">
                 <div class="timeline-header">
                   <div class="timeline-role">Secondary School Certificate (Science)</div>
                   <div class="timeline-date">Completed</div>
                 </div>
-                <div class="timeline-company">Dhaka Board, Bangladesh</div>
-                <p style="font-size: 0.88rem; color: var(--text-muted);"><strong>GPA: 4.56 / 5.00</strong></p>
+                <div class="timeline-company">Dhaka Education Board, Bangladesh</div>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">
+                  <strong>GPA: 4.56 / 5.00</strong> with foundational science and computational curriculum.
+                </p>
               </div>
             </div>
           </div>
@@ -1447,26 +1998,29 @@
     </div>
   </section>
 
-  <!-- Contact & Action Box -->
+  <!-- Contact & Git Call To Action -->
   <section id="contact" style="background: var(--surface);">
     <div class="container">
       <div class="contact-box">
-        <h2>Let's Discuss Merchandising Opportunities</h2>
-        <p>Available for Junior Apparel Merchandiser, Assistant Merchandiser, and RMG Order Execution positions across Savar, Ashulia, Gazipur, and Dhaka.</p>
+        <h2>Ready to Build Your Next Website?</h2>
+        <p>
+          Available for Full-Stack Web Developer roles, Frontend engineering, and custom web builds deployed on GitHub domains, Vercel, or custom servers.
+        </p>
         <div class="contact-links">
-          <a href="mailto:mailto.sowad@gmail.com" class="btn btn-light">
+          <a href="mailto:mailto.sowad@gmail.com" id="contactEmailBtn" class="btn btn-light">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Email: mailto.sowad@gmail.com
+            <span id="contactEmailLabel">Email: mailto.sowad@gmail.com</span>
           </a>
-          <a href="tel:+8801516520208" class="btn btn-light">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call: +880 1516-520208
+          <a href="https://github.com/sheikhsowad" target="_blank" id="contactGithubBtn" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span id="contactGithubLabel">GitHub Profile</span>
           </a>
-          <a href="https://www.linkedin.com/in/sheikhsowad/" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
+          <a href="https://www.linkedin.com/in/sheikhsowad/" target="_blank" id="contactLinkedinBtn" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
             LinkedIn Profile
           </a>
-          <a href="https://docs.google.com/document/d/1KzZMKCLOH9EnMwpQ3XVRPzZQoM8yMaJrEQwiJ2kV2EU/edit" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
-            Google Doc CV
+          <a href="tel:+8801516520208" id="contactPhoneBtn" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span id="contactPhoneLabel">+880 1516-520208</span>
           </a>
         </div>
       </div>
@@ -1476,105 +2030,455 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Sheikh Abdul Basit. Built for Apparel Merchandising & RMG Manufacturing Portfolio.</p>
+      <p>&copy; 2026 <span id="footerName">Sheikh Abdul Basit</span>. Built for Full-Stack Web Development & Git Domain Deployment.</p>
     </div>
   </footer>
 
-  <!-- Interactive JavaScript -->
+  <!-- Floating Quick Edit Button -->
+  <button class="floating-edit-pill" onclick="openProfileModal()" title="Customize Details & Photo">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+    <span>Personalize Portfolio</span>
+  </button>
+
+  <!-- Personal Details Changing Modal -->
+  <div class="modal-backdrop" id="profileModal" onclick="handleBackdropClick(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Personalize Your Portfolio Details</h3>
+        <button class="btn-icon" onclick="closeProfileModal()" title="Close">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+        Update your personal details and photo below. Changes save instantly in your browser and can be exported as a ready-to-push file for your Git domain!
+      </div>
+
+      <form id="profileForm" onsubmit="saveProfileChanges(event)">
+        <!-- Photo Upload Row -->
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 18px; padding: 12px; background: var(--surface-subtle); border: 1px solid var(--border); border-radius: var(--radius-sm);">
+          <img id="modalAvatarPreview" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' fill='%232563eb'/><circle cx='60' cy='46' r='24' fill='%23ffffff'/><path d='M24 106c0-20 16-36 36-36s36 16 36 36' fill='%23ffffff'/></svg>" alt="Avatar">
+          <div style="flex: 1;">
+            <div style="font-weight: 700; font-size: 0.9rem;">Profile Picture</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px;">Upload a local photo or paste an image URL.</div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('avatarFileInput').click()">Upload Image</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="resetAvatar()">Reset Default</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="inpName">Full Name</label>
+            <input type="text" id="inpName" required placeholder="e.g. John Doe">
+          </div>
+          <div class="form-group">
+            <label for="inpSubtitle">Professional Title / Subtitle</label>
+            <input type="text" id="inpSubtitle" required placeholder="e.g. Full-Stack Web Developer">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inpBio">Bio / Elevator Pitch</label>
+          <textarea id="inpBio" rows="3" placeholder="Brief summary of your skills and engineering focus..."></textarea>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="inpEmail">Email Address</label>
+            <input type="email" id="inpEmail" placeholder="your.name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="inpPhone">Phone Number</label>
+            <input type="text" id="inpPhone" placeholder="+880 1516-520208">
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="inpLocation">Location</label>
+            <input type="text" id="inpLocation" placeholder="City, Country">
+          </div>
+          <div class="form-group">
+            <label for="inpBadge">Status Badge Text</label>
+            <input type="text" id="inpBadge" placeholder="e.g. Ready for Web Developer Roles">
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="inpGithub">GitHub Profile URL</label>
+            <input type="url" id="inpGithub" placeholder="https://github.com/yourusername">
+          </div>
+          <div class="form-group">
+            <label for="inpLinkedin">LinkedIn Profile URL</label>
+            <input type="url" id="inpLinkedin" placeholder="https://linkedin.com/in/yourusername">
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <div class="form-group">
+            <label for="inpStat1">Stat 1 (e.g. 98+ | Lighthouse)</label>
+            <input type="text" id="inpStat1" placeholder="98+">
+          </div>
+          <div class="form-group">
+            <label for="inpStat2">Stat 2 (e.g. 100% | Responsive)</label>
+            <input type="text" id="inpStat2" placeholder="100%">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="exportPersonalizedHTML()" title="Download file ready for git domain">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Export Custom index.html
+          </button>
+          <button type="button" class="btn btn-outline" onclick="resetToDefaults()">Reset Defaults</button>
+          <button type="submit" class="btn btn-primary">Save & Apply Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
   <script>
-    // Workflow Step Data
-    const workflowSteps = [
+    // ----------------------------------------------------
+    // 1. Theme Management (Light / Dark Mode with Persistence)
+    // ----------------------------------------------------
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+      }
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+
+      const moon = document.getElementById('moonIcon');
+      const sun = document.getElementById('sunIcon');
+      if (theme === 'dark') {
+        moon.style.display = 'none';
+        sun.style.display = 'block';
+      } else {
+        moon.style.display = 'block';
+        sun.style.display = 'none';
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    }
+
+    // Initialize Theme immediately
+    initTheme();
+
+    // ----------------------------------------------------
+    // 2. Personal Details & Photo State Management
+    // ----------------------------------------------------
+    const defaultProfile = {
+      name: "Sheikh Abdul Basit",
+      subtitle: "Full-Stack Web Developer | React • Next.js • Node.js • Git Ops",
+      bio: "Passionate web engineer with expertise in building responsive, scalable, and accessibility-compliant web applications. Focused on component-driven frontend architecture, clean RESTful backend integrations, database schemas, and seamless Git CI/CD deployments.",
+      email: "mailto.sowad@gmail.com",
+      phone: "+880 1516-520208",
+      location: "Dhaka, Bangladesh (Remote Ready)",
+      badge: "Ready for Full-Stack & Frontend Web Developer Roles",
+      github: "https://github.com/sheikhsowad",
+      linkedin: "https://www.linkedin.com/in/sheikhsowad/",
+      stat1Val: "98+",
+      stat2Val: "100%",
+      stat3Val: "REST/SQL",
+      stat4Val: "CI/CD",
+      avatar: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' fill='%232563eb'/><circle cx='60' cy='46' r='24' fill='%23ffffff'/><path d='M24 106c0-20 16-36 36-36s36 16 36 36' fill='%23ffffff'/></svg>"
+    };
+
+    function loadProfile() {
+      const stored = localStorage.getItem('user_profile_data');
+      if (stored) {
+        try {
+          return { ...defaultProfile, ...JSON.parse(stored) };
+        } catch (e) {
+          return defaultProfile;
+        }
+      }
+      return defaultProfile;
+    }
+
+    function renderProfile(profile) {
+      // Name & Initials
+      const name = profile.name || defaultProfile.name;
+      document.getElementById('brandName').innerText = name;
+      document.getElementById('heroName').innerText = name;
+      document.getElementById('cardName').innerText = name;
+      document.getElementById('footerName').innerText = name;
+      document.getElementById('metaDocTitle').innerText = name + " | Full-Stack Web Developer & Website Engineer";
+
+      // Initials (e.g., "Sheikh Abdul Basit" -> "SB")
+      const parts = name.trim().split(/\s+/);
+      const initials = parts.length > 1 ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase() : name.slice(0, 2).toUpperCase();
+      document.getElementById('brandInitials').innerText = initials;
+
+      // Subtitle & Bio
+      document.getElementById('heroSubtitle').innerHTML = profile.subtitle || defaultProfile.subtitle;
+      document.getElementById('cardTitle').innerText = profile.subtitle ? profile.subtitle.split('|')[0].trim() : "Full-Stack Web Developer";
+      document.getElementById('heroBio').innerText = profile.bio || defaultProfile.bio;
+
+      // Badge
+      document.getElementById('heroBadgeText').innerText = profile.badge || defaultProfile.badge;
+
+      // Location, Email, Phone
+      document.getElementById('metaLocation').innerText = profile.location || defaultProfile.location;
+      document.getElementById('metaEmail').innerText = profile.email || defaultProfile.email;
+
+      // Contact Buttons
+      const email = profile.email || defaultProfile.email;
+      const emailBtn = document.getElementById('contactEmailBtn');
+      emailBtn.href = "mailto:" + email;
+      document.getElementById('contactEmailLabel').innerText = "Email: " + email;
+
+      const phone = profile.phone || defaultProfile.phone;
+      const phoneBtn = document.getElementById('contactPhoneBtn');
+      phoneBtn.href = "tel:" + phone.replace(/[^0-9+]/g, '');
+      document.getElementById('contactPhoneLabel').innerText = phone;
+
+      // GitHub
+      const githubUrl = profile.github || defaultProfile.github;
+      const heroGithubBtn = document.getElementById('heroGithubBtn');
+      heroGithubBtn.href = githubUrl;
+      const contactGithubBtn = document.getElementById('contactGithubBtn');
+      contactGithubBtn.href = githubUrl;
+      document.querySelectorAll('.dynamic-github-link').forEach(link => {
+        link.href = githubUrl;
+      });
+
+      // LinkedIn
+      const linkedinUrl = profile.linkedin || defaultProfile.linkedin;
+      document.getElementById('contactLinkedinBtn').href = linkedinUrl;
+
+      // Stats
+      if (profile.stat1Val) document.getElementById('stat1Val').innerText = profile.stat1Val;
+      if (profile.stat2Val) document.getElementById('stat2Val').innerText = profile.stat2Val;
+      if (profile.stat3Val) document.getElementById('stat3Val').innerText = profile.stat3Val;
+      if (profile.stat4Val) document.getElementById('stat4Val').innerText = profile.stat4Val;
+
+      // Avatar
+      const avatarSrc = profile.avatar || defaultProfile.avatar;
+      document.getElementById('userAvatarImg').src = avatarSrc;
+      document.getElementById('modalAvatarPreview').src = avatarSrc;
+    }
+
+    // Handle Image Upload
+    function handleAvatarFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const base64Data = e.target.result;
+        const currentProfile = loadProfile();
+        currentProfile.avatar = base64Data;
+        localStorage.setItem('user_profile_data', JSON.stringify(currentProfile));
+        renderProfile(currentProfile);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resetAvatar() {
+      const currentProfile = loadProfile();
+      currentProfile.avatar = defaultProfile.avatar;
+      localStorage.setItem('user_profile_data', JSON.stringify(currentProfile));
+      renderProfile(currentProfile);
+    }
+
+    // Modal Control
+    function openProfileModal() {
+      const p = loadProfile();
+      document.getElementById('inpName').value = p.name;
+      document.getElementById('inpSubtitle').value = p.subtitle;
+      document.getElementById('inpBio').value = p.bio;
+      document.getElementById('inpEmail').value = p.email;
+      document.getElementById('inpPhone').value = p.phone;
+      document.getElementById('inpLocation').value = p.location;
+      document.getElementById('inpBadge').value = p.badge;
+      document.getElementById('inpGithub').value = p.github;
+      document.getElementById('inpLinkedin').value = p.linkedin;
+      document.getElementById('inpStat1').value = p.stat1Val;
+      document.getElementById('inpStat2').value = p.stat2Val;
+      document.getElementById('modalAvatarPreview').src = p.avatar;
+
+      document.getElementById('profileModal').classList.add('open');
+    }
+
+    function closeProfileModal() {
+      document.getElementById('profileModal').classList.remove('open');
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'profileModal') {
+        closeProfileModal();
+      }
+    }
+
+    function saveProfileChanges(e) {
+      e.preventDefault();
+      const current = loadProfile();
+      const updated = {
+        ...current,
+        name: document.getElementById('inpName').value.trim(),
+        subtitle: document.getElementById('inpSubtitle').value.trim(),
+        bio: document.getElementById('inpBio').value.trim(),
+        email: document.getElementById('inpEmail').value.trim(),
+        phone: document.getElementById('inpPhone').value.trim(),
+        location: document.getElementById('inpLocation').value.trim(),
+        badge: document.getElementById('inpBadge').value.trim(),
+        github: document.getElementById('inpGithub').value.trim(),
+        linkedin: document.getElementById('inpLinkedin').value.trim(),
+        stat1Val: document.getElementById('inpStat1').value.trim() || "98+",
+        stat2Val: document.getElementById('inpStat2').value.trim() || "100%"
+      };
+
+      localStorage.setItem('user_profile_data', JSON.stringify(updated));
+      renderProfile(updated);
+      closeProfileModal();
+    }
+
+    function resetToDefaults() {
+      if (confirm("Reset all personal details and photo back to default values?")) {
+        localStorage.removeItem('user_profile_data');
+        renderProfile(defaultProfile);
+        closeProfileModal();
+      }
+    }
+
+    // Export custom HTML with user's settings baked in for direct Git push!
+    function exportPersonalizedHTML() {
+      const clonedDoc = document.documentElement.cloneNode(true);
+      // Remove open modal class if any
+      const modal = clonedDoc.querySelector('#profileModal');
+      if (modal) modal.classList.remove('open');
+      
+      const htmlString = "<!DOCTYPE html>\n" + clonedDoc.outerHTML;
+      const blob = new Blob([htmlString], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // Initial render
+    renderProfile(loadProfile());
+
+    // ----------------------------------------------------
+    // 3. Interactive Development Stepper
+    // ----------------------------------------------------
+    const devSteps = [
       {
-        title: "Step 1: Buyer Purchase Order (PO) Audit & Validation",
-        badge: "Order Intake Phase",
+        title: "Step 1: Product Specifications & Architecture Design",
+        badge: "Discovery & Planning Phase",
         content: `
-          <p style="margin-bottom: 16px; color: var(--text-muted);">Before entering data into the ERP, the Junior Merchandiser must cross-examine the official Buyer PO against preliminary costing and tech pack sheets.</p>
+          <p style="margin-bottom: 16px; color: var(--text-muted);">
+            Prior to writing code, comprehensive architecture planning ensures that system interfaces, data schemas, responsive wireframes, and performance budgets are established.
+          </p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Critical Audit Checklist:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Key Architectural Deliverables:</h4>
               <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
-                <li>Verify PO number, style code, and season reference.</li>
-                <li>Confirm total order quantity matches agreed color & size breakdown ratios.</li>
-                <li>Examine Ex-factory Date (ETD) vs. supplier material lead times.</li>
-                <li>Check Incoterms (FOB Chittagong, CIF, EXW) and payment terms (L/C, TT).</li>
+                <li>Component tree decomposition & state hierarchy mapping.</li>
+                <li>Relational or document schema modeling (PostgreSQL / MongoDB).</li>
+                <li>RESTful API contract definitions with request/response typings.</li>
+                <li>Performance budget: &lt; 150KB initial JS payload target.</li>
               </ul>
             </div>
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Key Risk Mitigation:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Quality & Security Safeguards:</h4>
               <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-                Identifying discrepancies in FOB prices or delivery dates immediately prevents financial losses and air freight penalties before production scheduling begins.
+                Early planning catches potential hydration mismatches, CORS configuration traps, and unauthorized data leakage before a single line of production code is merged.
               </p>
             </div>
           </div>
         `
       },
       {
-        title: "Step 2: ERP Order Entry & Style Generation",
-        badge: "System Booking Phase",
+        title: "Step 2: Component-Driven Frontend & Responsive UI",
+        badge: "Client-Side Engineering",
         content: `
-          <p style="margin-bottom: 16px; color: var(--text-muted);">Entering validated data directly into the apparel ERP system to create unique factory job cards and routing orders.</p>
+          <p style="margin-bottom: 16px; color: var(--text-muted);">
+            Building reusable, testable React/TypeScript components styled with Tailwind CSS or CSS Custom Properties for maximum render speed and accessible markup.
+          </p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">ERP Entry Fields:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Engineering Practices:</h4>
               <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
-                <li>Internal Job Order Number generation.</li>
-                <li>Color-wise and size-wise breakdown matrix.</li>
-                <li>Target sewing line allocation and SMV benchmark.</li>
-                <li>Standard packaging specifications (single poly vs. blister pack).</li>
+                <li>Semantic HTML5 tags (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;footer&gt;).</li>
+                <li>Mobile-first CSS Grid & Flexbox layouts adapting from 320px to 4K displays.</li>
+                <li>Accessible focus states, keyboard navigation, and ARIA roles.</li>
+                <li>Optimized image delivery using modern formats (WebP/AVIF) and explicit aspect ratios.</li>
               </ul>
             </div>
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Impact on Production:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Developer Experience:</h4>
               <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-                Accurate ERP entry enables the Planning & PPC team to load sewing lines on schedule and alerts the store room to reserve floor capacity.
+                Modular CSS variables enable dark mode switching with zero layout thrashing, keeping client memory footprints lightweight.
               </p>
             </div>
           </div>
         `
       },
       {
-        title: "Step 3: Supplier Proforma Invoice (PI) Cross-Examination",
-        badge: "Procurement Verification Phase",
+        title: "Step 3: REST API Integration & Secure State Logic",
+        badge: "Full-Stack Data Flow",
         content: `
-          <p style="margin-bottom: 16px; color: var(--text-muted);">Detailed verification of fabric mills and trim vendors' Proforma Invoices against buyer approved BOM standards.</p>
+          <p style="margin-bottom: 16px; color: var(--text-muted);">
+            Connecting client components to Node.js backend controllers or serverless edge functions with robust validation and optimistic UI updates.
+          </p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">PI Inspection Points:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Data Layer Architecture:</h4>
               <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
-                <li>Unit price, minimum order quantity (MOQ), and surcharge terms.</li>
-                <li>Yarn composition, count, fabric construction, GSM, and finishing.</li>
-                <li>In-house lead time: verifying mill delivery matches the T&A cutting date.</li>
-                <li>Color fastness and testing compliance documentation.</li>
+                <li>Async fetch client with automatic retry and timeout policies.</li>
+                <li>Zod schema parsing to guarantee incoming data matches expected types.</li>
+                <li>Secure JWT authentication with HttpOnly session cookies.</li>
+                <li>Real-time optimistic state updates for instant user feedback.</li>
               </ul>
             </div>
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Merchandiser Responsibility:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Resilience & Reliability:</h4>
               <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-                Any mismatch in fabric width, GSM, or trim dimensions will directly alter marker efficiency and garment fit. The PI must be verified prior to signing.
+                Graceful error boundaries prevent full-page crashes during network drops, displaying helpful retry prompts instead of blank screens.
               </p>
             </div>
           </div>
         `
       },
       {
-        title: "Step 4: Factory PO Generation & Material Tracking",
-        badge: "Execution & In-house Phase",
+        title: "Step 4: Git Ops, GitHub Actions CI/CD & Custom Domain Release",
+        badge: "Automated Deployment",
         content: `
-          <p style="margin-bottom: 16px; color: var(--text-muted);">Issuing formal Purchase Orders to verified suppliers and establishing daily delivery tracking protocols.</p>
+          <p style="margin-bottom: 16px; color: var(--text-muted);">
+            Configuring continuous integration to automate linting, bundling, and deployment to GitHub Pages or cloud hosting upon every commit.
+          </p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Execution Activities:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Git Ops & Domain Setup:</h4>
               <ul style="padding-left: 18px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
-                <li>Issue signed factory POs with strict delivery penalty clauses.</li>
-                <li>Distribute PO copies to Accounts for L/C or advance TT processing.</li>
-                <li>Coordinate with Central Store for material receiving and 4-point inspection.</li>
-                <li>Update daily Excel tracking sheet for inventory status.</li>
+                <li>Git branch protection on <code>main</code> with required pull request reviews.</li>
+                <li>Automated GitHub Actions workflow triggering on code pushes.</li>
+                <li>Static asset generation and deployment to Git Pages / CDN edge.</li>
+                <li>Custom CNAME configuration with automatic Let's Encrypt SSL.</li>
               </ul>
             </div>
-            <div style="background: var(--surface-subtle); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--primary);">Shipment Guarantee:</h4>
+            <div style="background: var(--surface-subtle); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">Zero-Downtime Guarantee:</h4>
               <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-                Ensures 100% of raw materials and sewing trims are in-house at least 5 days before the scheduled Pre-Production (PP) meeting.
+                Atomic deployments ensure old releases serve incoming traffic seamlessly until the new build passes health checks.
               </p>
             </div>
           </div>
@@ -1582,7 +2486,7 @@
       }
     ];
 
-    function setWorkflowStep(index) {
+    function setDevStep(index) {
       const items = document.querySelectorAll('#workflowStepper .step-item');
       items.forEach((item, i) => {
         if (i === index) {
@@ -1593,10 +2497,10 @@
       });
 
       const box = document.getElementById('workflowDetailBox');
-      const data = workflowSteps[index];
+      const data = devSteps[index];
       box.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary);">${data.title}</h3>
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-main);">${data.title}</h3>
           <span class="badge badge-primary">${data.badge}</span>
         </div>
         ${data.content}
@@ -1604,9 +2508,11 @@
     }
 
     // Initialize first workflow step
-    setWorkflowStep(0);
+    setDevStep(0);
 
-    // Tab switcher
+    // ----------------------------------------------------
+    // 4. Tab switcher
+    // ----------------------------------------------------
     function switchTechTab(evt, tabId) {
       const tabBtns = document.querySelectorAll('.tabs-nav .tab-btn');
       tabBtns.forEach(btn => btn.classList.remove('active'));
@@ -1617,36 +2523,59 @@
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Interactive Booking Calculator
-    function calculateBooking() {
-      const qty = parseFloat(document.getElementById('calcOrderQty').value) || 0;
-      const type = document.getElementById('calcGarmentType').value;
-      const wastage = parseFloat(document.getElementById('calcWastage').value) || 0.08;
+    // ----------------------------------------------------
+    // 5. Interactive Website Estimator Calculator
+    // ----------------------------------------------------
+    function calculateDevEstimate() {
+      const type = document.getElementById('calcSiteType').value;
+      const features = document.getElementById('calcFeatures').value;
+      const deploy = document.getElementById('calcDeployment').value;
 
-      let unitConsumptionKg = 2.85; // default polo
-      let buttonsPerGarment = 3;
+      let weeks = "1 - 2 Weeks";
+      let points = 25;
+      let lighthouse = "99+ Score";
+      let stack = "HTML5 + Vanilla JS";
 
-      if (type === 'basic_tee') {
-        unitConsumptionKg = 2.10;
-        buttonsPerGarment = 0;
-      } else if (type === 'hoodie') {
-        unitConsumptionKg = 5.40;
-        buttonsPerGarment = 0;
+      if (type === 'landing') {
+        weeks = "4 - 7 Days";
+        points = 15;
+        stack = "Semantic HTML + CSS / Tailwind";
+      } else if (type === 'corporate') {
+        weeks = "1.5 - 2 Weeks";
+        points = 35;
+        stack = "Next.js / Astro + Tailwind";
+      } else if (type === 'webapp') {
+        weeks = "2 - 3.5 Weeks";
+        points = 55;
+        stack = "React + Node.js + PostgreSQL";
+      } else if (type === 'ecommerce') {
+        weeks = "3 - 5 Weeks";
+        points = 80;
+        stack = "Next.js + Stripe + Prisma DB";
       }
 
-      // Dozens = qty / 12
-      const dozens = qty / 12;
-      const totalFabricKg = Math.round(dozens * unitConsumptionKg * (1 + wastage));
-      const totalButtons = Math.round(qty * buttonsPerGarment * 1.03);
-      const cartons = Math.ceil(qty / 30);
+      if (features === 'advanced') {
+        points = Math.round(points * 1.25);
+      } else if (features === 'custom') {
+        points = Math.round(points * 1.5);
+      }
 
-      document.getElementById('resFabricKg').innerText = totalFabricKg.toLocaleString() + ' kg';
-      document.getElementById('resButtons').innerText = totalButtons.toLocaleString() + ' pcs';
-      document.getElementById('resCartons').innerText = cartons.toLocaleString() + ' ctn';
+      if (deploy === 'git') {
+        lighthouse = "100 Perf";
+      } else if (deploy === 'vercel') {
+        lighthouse = "98+ Perf";
+      } else if (deploy === 'cloud') {
+        lighthouse = "97+ Perf";
+      }
+
+      document.getElementById('resDuration').innerText = weeks;
+      document.getElementById('resStoryPoints').innerText = points + " SP";
+      document.getElementById('resPerformance').innerText = lighthouse;
+      document.getElementById('resStack').innerText = stack;
     }
 
-    // Run initial calc
-    calculateBooking();
+    // Initialize calculator
+    calculateDevEstimate();
   </script>
 </body>
 </html>
