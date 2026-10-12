@@ -1258,9 +1258,6 @@
         grid-template-columns: 1fr;
         gap: 36px;
       }
-      .stepper {
-        grid-template-columns: 1fr 1fr;
-      }
       .skills-grid {
         grid-template-columns: 1fr;
       }
@@ -1305,12 +1302,74 @@
         width: 100%;
         min-height: 46px;
       }
+      /* Combined Compact Stepper for Phone UI */
       .stepper {
+        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 6px;
+        background: var(--surface-glass);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius);
+        padding: 6px;
+        margin-bottom: 20px;
+        box-shadow: var(--glass-shadow-sm), var(--glass-inset-highlight);
       }
       .step-item {
-        padding: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        min-height: 44px;
+        background: transparent;
+        border: 1px solid transparent;
+        box-shadow: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: var(--transition);
+        touch-action: manipulation;
+      }
+      .step-item:hover {
+        background: var(--surface-glass-hover);
+        border-color: transparent;
+        transform: none;
+      }
+      .step-item.active {
+        background: var(--surface-glass-card);
+        border-color: var(--border-glass-hover);
+        box-shadow: var(--glass-shadow-sm), var(--glass-inset-highlight);
+        transform: none;
+      }
+      .step-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-bottom: 0;
+        font-size: 0.76rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step-item.active .step-num {
+        background: var(--accent);
+        color: var(--accent-contrast);
+        border-color: var(--accent);
+        box-shadow: 0 0 10px var(--accent-glow);
+      }
+      .step-title {
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 0;
+        color: var(--text-main);
+        text-align: left;
+      }
+      .step-desc {
+        display: none !important;
       }
       .workflow-detail-box {
         padding: 20px;
@@ -1347,6 +1406,72 @@
     body.is-phone-ui .btn-cv-top .cv-btn-text {
       display: none;
     }
+    body.is-phone-ui .stepper {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 6px !important;
+      background: var(--surface-glass) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid var(--border-glass) !important;
+      border-radius: var(--radius) !important;
+      padding: 6px !important;
+      margin-bottom: 20px !important;
+      box-shadow: var(--glass-shadow-sm), var(--glass-inset-highlight) !important;
+    }
+    body.is-phone-ui .step-item {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 10px 12px !important;
+      min-height: 44px !important;
+      background: transparent !important;
+      border: 1px solid transparent !important;
+      box-shadow: none !important;
+      border-radius: var(--radius-sm) !important;
+      transform: none !important;
+    }
+    body.is-phone-ui .step-item:hover {
+      background: var(--surface-glass-hover) !important;
+      border-color: transparent !important;
+      transform: none !important;
+    }
+    body.is-phone-ui .step-item.active {
+      background: var(--surface-glass-card) !important;
+      border-color: var(--border-glass-hover) !important;
+      box-shadow: var(--glass-shadow-sm), var(--glass-inset-highlight) !important;
+      transform: none !important;
+    }
+    body.is-phone-ui .step-num {
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 50% !important;
+      margin-bottom: 0 !important;
+      font-size: 0.76rem !important;
+      font-weight: 700 !important;
+      flex-shrink: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    body.is-phone-ui .step-item.active .step-num {
+      background: var(--accent) !important;
+      color: var(--accent-contrast) !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 10px var(--accent-glow) !important;
+    }
+    body.is-phone-ui .step-title {
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+      line-height: 1.25 !important;
+      margin-bottom: 0 !important;
+      color: var(--text-main) !important;
+      text-align: left !important;
+    }
+    body.is-phone-ui .step-desc {
+      display: none !important;
+    }
 
     /* Force PC UI when is-pc-ui is active on screen > 860px */
     @media (min-width: 861px) {
@@ -1356,20 +1481,86 @@
       body.is-pc-ui .nav-links {
         display: flex !important;
       }
+      body.is-pc-ui .stepper {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 16px !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        margin-bottom: 24px !important;
+      }
+      body.is-pc-ui .step-item {
+        display: block !important;
+        background: var(--surface-glass) !important;
+        border: 1px solid var(--border-glass) !important;
+        padding: 20px !important;
+        border-radius: var(--radius-sm) !important;
+        box-shadow: var(--glass-inset-highlight) !important;
+      }
+      body.is-pc-ui .step-item:hover {
+        border-color: var(--border-glass-hover) !important;
+        background: var(--surface-glass-hover) !important;
+        transform: translateY(-2px) !important;
+      }
+      body.is-pc-ui .step-item.active {
+        border-color: var(--border-glass-focus) !important;
+        background: var(--surface-glass-card) !important;
+        box-shadow: 0 0 0 1px var(--border-glass-focus), var(--glass-shadow) !important;
+      }
+      body.is-pc-ui .step-num {
+        display: inline-flex !important;
+        width: 30px !important;
+        height: 30px !important;
+        margin-bottom: 10px !important;
+        font-size: 0.82rem !important;
+      }
+      body.is-pc-ui .step-item.active .step-num {
+        background: var(--accent) !important;
+        color: var(--accent-contrast) !important;
+        border-color: var(--accent) !important;
+        box-shadow: 0 0 14px var(--accent-glow) !important;
+      }
+      body.is-pc-ui .step-title {
+        font-weight: 700 !important;
+        font-size: 0.96rem !important;
+        margin-bottom: 6px !important;
+        color: var(--text-main) !important;
+        text-align: left !important;
+      }
+      body.is-pc-ui .step-desc {
+        display: block !important;
+        font-size: 0.8rem !important;
+        color: var(--text-muted) !important;
+        line-height: 1.45 !important;
+      }
     }
 
     @media (max-width: 520px) {
       .container {
         padding: 0 16px;
       }
-      .stepper {
-        grid-template-columns: 1fr;
-      }
       .hero-title {
         font-size: 2rem;
       }
       .section-title {
         font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .step-item {
+        padding: 8px 8px !important;
+        gap: 7px !important;
+      }
+      .step-num {
+        width: 22px !important;
+        height: 22px !important;
+        font-size: 0.72rem !important;
+      }
+      .step-title {
+        font-size: 0.72rem !important;
       }
     }
   </style>
